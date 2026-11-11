@@ -1,0 +1,39 @@
+name: Phase 3 - .NET & Visual Studio Discovery
+
+on:
+  workflow_call:
+
+jobs:
+  discovery:
+    runs-on: windows-11-vs2026-arm
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: .NET SDK & Runtime Inventory
+        shell: pwsh
+        run: |
+          Write-Host "--- .NET SDKs ---"
+          dotnet --list-sdks
+          Write-Host "--- .NET Runtimes ---"
+          dotnet --list-runtimes
+
+      - name: Visual Studio & MSBuild Info
+        shell: pwsh
+        run: |
+          Write-Host "--- VSWhere Info ---"
+          vsdevelop --version
+          Write-Host "--- MSBuild Version ---"
+          msbuild -version
+          Write-Host "--- Visual Studio Instances ---"
+          vsdevelop -list
+
+      - name: Check Specific Workloads
+        shell: pwsh
+        run: |
+          Write-Host "--- Checking for specific workloads ---"
+          # Checking for the presence of common workloads listed in the Readme
+          $workloads = @("maui.windows", "netcore.sdk", "android", "web")
+          foreach ($w in $workloads) {
+            $check = vsdevelop -list | Select-String -Pattern $w
+            if ($check) { Write-Host "Found: $w" } else { Write-Host "Missing: $w" }
+          }
