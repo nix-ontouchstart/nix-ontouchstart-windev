@@ -79,6 +79,57 @@ Here is the iterative plan to explore and validate this environment:
 ### Execution Strategy
 I will implement this by creating a "discovery" script (e.g., `discovery.sh` or `discovery.ps1`) that I will run in the `dev.yml` workflow or a dedicated debug workflow. I will analyze the output of each phase before proceeding to the next.
 
-**Next Step:** I will start by drafting the "Phase 1: Foundation" discovery commands. Shall I proceed?
+> The scripts should be written as powershell commands in Github Action jobs. Follow the pattern bellow
+
+caller `./.github/workflows/dev.yml`
+
+```yaml
+on: push
+jobs:
+  phase1:
+    uses: ./.github/workflows/phase1.yml
+
+  windev:
+    needs: phase1
+    runs-on: windows-11-vs2026-arm
+    steps:
+    - uses: actions/checkout@v7
+```
+
+callee `./.github/workflows/phase1.yml`
+
+```yaml
+name: Phase 1 - Foundation Discovery
+
+on:
+  workflow_call:
+
+jobs:
+  discovery:
+    runs-on: windows-11-vs2026-arm
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: OS and Architecture Info
+        shell: powershell
+        run: |
+          Write-Host "--- Architecture ---"
+          Write-Host ([System.Environment]::ProcessorArchitecture)
+          Write-Host "--- System Info ---"
+          Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, OSArchitecture | Format-List
+          Write-Host "--- Environment Variables ---"
+          Get-ChildItem Env: | Sort-Object Name | Select-Object Name, Value | Out-String
+
+      - name: Shell Versions
+        shell: powershell
+        run: |
+          Write-Host "--- Bash ---"
+          bash --version
+          Write-Host "--- PowerShell ---"
+          $PSVersionTable.PSVersion
+          Write-Host "--- pwsh ---"
+          pwsh --version
+
+```
 
 
