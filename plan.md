@@ -117,8 +117,6 @@ jobs:
           Write-Host ([System.Environment]::ProcessorArchitecture)
           Write-Host "--- System Info ---"
           Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, OSArchitecture | Format-List
-          Write-Host "--- Environment Variables ---"
-          Get-ChildItem Env: | Sort-Object Name | Select-Object Name, Value | Out-String
 
       - name: Shell Versions
         shell: powershell
@@ -129,6 +127,12 @@ jobs:
           $PSVersionTable.PSVersion
           Write-Host "--- pwsh ---"
           pwsh --version
+
+      - name: Environment Variables
+        shell: powershell
+        run: |
+          Write-Host "--- Environment Variables ---"
+          Get-ChildItem Env: | Sort-Object Name | Select-Object Name, Value | Out-String
 
 ```
 
