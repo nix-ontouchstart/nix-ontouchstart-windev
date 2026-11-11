@@ -111,7 +111,7 @@ jobs:
       - uses: actions/checkout@v7
 
       - name: OS and Architecture Info
-        shell: powershell
+        shell: pwsh
         run: |
           Write-Host "--- Architecture ---"
           Write-Host ([System.Environment]::ProcessorArchitecture)
@@ -119,7 +119,7 @@ jobs:
           Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, OSArchitecture | Format-List
 
       - name: Shell Versions
-        shell: powershell
+        shell: pwsh
         run: |
           Write-Host "--- Bash ---"
           bash --version
@@ -129,10 +129,10 @@ jobs:
           pwsh --version
 
       - name: Environment Variables
-        shell: powershell
+        shell: pwsh
         run: |
           Write-Host "--- Environment Variables ---"
-          Get-ChildItem Env: | Sort-Object Name | Select-Object Name, Value | Out-String
+          [System.Environment]::GetEnvironmentVariables("Process").GetEnumerator() | ForEach-Object { Write-Host "$($_.Key)=$($_.Value)" }
 
 ```
 
