@@ -13,9 +13,9 @@ jobs:
         shell: powershell
         run: |
           Write-Host "--- Architecture ---"
-          Write-Host (Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Hardware\Description\System\CentralProcessor\0").ProcessorArchitecture
+          Write-Host ([System.Environment]::ProcessorArchitecture)
           Write-Host "--- System Info ---"
-          Get-ComputerInfo | Select-Object OsName, OsVersion, CsProcessors | Format-List
+          Get-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, OSArchitecture | Format-List
           Write-Host "--- Environment Variables ---"
           Get-ChildItem Env: | Sort-Object Name | Select-Object Name, Value | Out-String
 
