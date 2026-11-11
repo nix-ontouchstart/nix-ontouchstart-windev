@@ -1,0 +1,6 @@
+on: push
+jobs:
+  windev:
+    runs-on: windows-11-vs2026-arm
+    steps:
+    - uses: actions/checkout@v7
