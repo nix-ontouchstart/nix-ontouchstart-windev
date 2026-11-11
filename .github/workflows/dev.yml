@@ -8,6 +8,6 @@ jobs:
     uses: ./.github/workflows/phase2.yml
 
   phase3:
-    needs: phase3
+    needs: phase2
     uses: ./.github/workflows/phase3.yml
 
