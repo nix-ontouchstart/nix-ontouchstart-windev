@@ -1,0 +1,42 @@
+name: Phase 2 - PowerShell & Rust Discovery
+
+on:
+  workflow_call:
+
+jobs:
+  discovery:
+    runs-on: windows-11-vs2026-arm
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: PowerShell Module Inventory
+        shell: pwsh
+        run: |
+          Write-Host "--- PowerShell Modules ---"
+          Get-Module -ListAvailable | Select-Object Name, Version | Sort-Object Name | Format-Table -AutoSize
+
+      - name: PowerShell Environment Check
+        shell: pwsh
+        run: |
+          Write-Host "--- PowerShell Version ---"
+          $PSVersionTable.PSVersion
+          Write-Host "--- Execution Policy ---"
+          Get-ExecutionPolicy
+          Write-Host "--- Path Variable ---"
+          $env:Path
+
+      - name: Rust Toolchain Versions
+        shell: pwsh
+        run: |
+          Write-Host "--- Rustc ---"
+          rustc --version
+          Write-Host "--- Cargo ---"
+          cargo --version
+          Write-Host "--- Rustup ---"
+          rustup --version
+
+      - name: Rust Installed Packages
+        shell: pwsh
+        run: |
+          Write-Host "--- Cargo Installed Binaries ---"
+          cargo install --list

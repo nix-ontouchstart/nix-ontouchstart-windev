@@ -3,8 +3,7 @@ jobs:
   phase1:
     uses: ./.github/workflows/phase1.yml
 
-  windev:
+  phase2:
     needs: phase1
-    runs-on: windows-11-vs2026-arm
-    steps:
-    - uses: actions/checkout@v7
+    uses: ./.github/workflows/phase2.yml
+
