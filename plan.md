@@ -44,37 +44,17 @@ To "learn" the `windows-11-vs2026-arm` environment effectively, we need to syste
 
 Here is the iterative plan to explore and validate this environment:
 
-### Phase 1: Foundation & Shell Verification
-**Goal:** Confirm basic OS info, architecture, and shell availability.
-1.  **OS & Architecture:** Verify `uname -m`, `systeminfo`, and environment variables like `PROCESSOR_ARCHITECTURE`.
-2.  **Shells:** Test `bash`, `powershell`, and `pwsh` (PowerShell 7) availability and basic command execution.
-3.  **Environment Variables:** Dump all environment variables to identify custom paths, secrets (masked), and proxy settings.
 
-### Phase 2: Language Runtimes & Package Managers
-**Goal:** Verify the "Language and Runtime" and "Package Management" sections of the Readme.
-1.  **Runtime Check:** Run `--version` for Python, Node.js, Go, Ruby, PHP, and Julia.
-2.  **Package Managers:** Verify `npm`, `pip`, `composer`, `nuget`, `yarn`, and `vcpkg`.
-3.  **Rust Toolchain:** Verify `rustc`, `cargo`, and `rustup` versions and the listed packages (bindgen, clippy, etc.).
-
-### Phase 3: .NET & Visual Studio Toolchain (Critical for Windev)
-**Goal:** Deep dive into the build environment for the `windev` job.
-1.  **.NET SDKs:** List all installed .NET SDKs and Runtimes (`dotnet --list-sdks`, `dotnet --list-runtimes`).
-2.  **MSBuild/Visual Studio:** Verify `msbuild` path, `vsdevelop` availability, and Visual Studio instance information.
-3.  **Workloads:** Check if the specific workloads (e.g., `maui.windows`, `netcore.sdk`) are correctly registered in the VS instance.
-4.  **Windows SDKs:** Confirm the presence of the 10.0.26100.0 and 10.0.22621.0 SDKs.
-
-### Phase 4: Native Build & C++ Tools
-**Goal:** Verify the C++ toolchain and native build capabilities.
-1.  **Compilers:** Verify `gcc`, `clang` (via LLVM), and MSVC (`cl.exe`) paths.
-2.  **Build Systems:** Verify `cmake`, `ninja`, `bazel`, and `make`.
-3.  **vcpkg:** Test `vcpkg` command execution and check the `VCPKG_INSTALLATION_ROOT`.
-4.  **Libraries:** Verify `OpenSSL` and other shared libraries.
-
-### Phase 5: Connectivity & Specialized Tools
-**Goal:** Verify external integrations and specialized CLI tools.
-1.  **Cloud CLIs:** Test `az`, `aws`, `gh` (GitHub CLI) availability.
-2.  **Web Servers:** Verify if Apache/Nginx are reachable (even if stopped) and check config paths.
-3.  **Database Tools:** Verify `mysql` and `sqlcmd` (or equivalent) availability.
+**Phase 1: Foundation & Shell Verification** (Completed/Defined)
+**Phase 2: PowerShell & Rust Toolchain**
+*   **PowerShell:** Verify version, list pre-installed modules (Az, AWSPowershell, Pester, etc.), and check for specific environment configurations.
+*   **Rust:** Verify `rustc`, `cargo`, and `rustup` versions. Check for installed components like `bindgen` and `cargo-audit`.
+**Phase 3: .NET & Visual Studio Toolchain**
+*   Verify .NET SDKs, MSBuild paths, and VS Workloads.
+**Phase 4: Native Build & C++ Tools**
+*   Verify `cmake`, `ninja`, `vcpkg`, and LLVM/Clang paths.
+**Phase 5: Connectivity & Specialized Tools**
+*   Verify Cloud CLIs and database tool availability.
 
 ### Execution Strategy
 I will implement this by creating a "discovery" script (e.g., `discovery.sh` or `discovery.ps1`) that I will run in the `dev.yml` workflow or a dedicated debug workflow. I will analyze the output of each phase before proceeding to the next.
@@ -89,11 +69,9 @@ jobs:
   phase1:
     uses: ./.github/workflows/phase1.yml
 
-  windev:
+  phase2:
     needs: phase1
-    runs-on: windows-11-vs2026-arm
-    steps:
-    - uses: actions/checkout@v7
+    uses: ./.github/workflows/phase2.yml
 ```
 
 callee `./.github/workflows/phase1.yml`
@@ -136,4 +114,49 @@ jobs:
 
 ```
 
+callee `./.github/workflows/phase1.yml`
 
+```yaml
+name: Phase 2 - PowerShell & Rust Discovery
+
+on:
+  workflow_call:
+
+jobs:
+  discovery:
+    runs-on: windows-11-vs2026-arm
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: PowerShell Module Inventory
+        shell: pwsh
+        run: |
+          Write-Host "--- PowerShell Modules ---"
+          Get-Module -ListAvailable | Select-Object Name, Version | Sort-Object Name | Format-Table -AutoSize
+
+      - name: PowerShell Environment Check
+        shell: pwsh
+        run: |
+          Write-Host "--- PowerShell Version ---"
+          $PSVersionTable.PSVersion
+          Write-Host "--- Execution Policy ---"
+          Get-ExecutionPolicy
+          Write-Host "--- Path Variable ---"
+          $env:Path
+
+      - name: Rust Toolchain Versions
+        shell: pwsh
+        run: |
+          Write-Host "--- Rustc ---"
+          rustc --version
+          Write-Host "--- Cargo ---"
+          cargo --version
+          Write-Host "--- Rustup ---"
+          rustup --version
+
+      - name: Rust Installed Packages
+        shell: pwsh
+        run: |
+          Write-Host "--- Cargo Installed Binaries ---"
+          cargo install --list
+```
