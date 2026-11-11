@@ -1,0 +1,30 @@
+name: Phase 1 - Foundation Discovery
+
+on:
+  workflow_call:
+
+jobs:
+  discovery:
+    runs-on: windows-11-vs2026-arm
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: OS and Architecture Info
+        shell: powershell
+        run: |
+          Write-Host "--- Architecture ---"
+          Write-Host (Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Hardware\Description\System\CentralProcessor\0").ProcessorArchitecture
+          Write-Host "--- System Info ---"
+          Get-ComputerInfo | Select-Object OsName, OsVersion, CsProcessors | Format-List
+          Write-Host "--- Environment Variables ---"
+          Get-ChildItem Env: | Sort-Object Name | Select-Object Name, Value | Out-String
+
+      - name: Shell Versions
+        shell: powershell
+        run: |
+          Write-Host "--- Bash ---"
+          bash --version
+          Write-Host "--- PowerShell ---"
+          $PSVersionTable.PSVersion
+          Write-Host "--- pwsh ---"
+          pwsh --version
