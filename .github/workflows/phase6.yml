@@ -1,0 +1,56 @@
+name: Phase 6 - WSL & Virtualization Discovery
+
+on:
+  workflow_call:
+
+jobs:
+  discovery:
+    runs-on: windows-11-vs2026-arm
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: WSL and Virtualization Check
+        shell: pwsh
+        run: |
+          Write-Host "--- WSL Binary Check ---"
+          if (Get-Command wsl.exe -ErrorAction SilentlyContinue) {
+            & wsl.exe --version
+          } else {
+            Write-Warning "wsl.exe not found in PATH."
+          }
+
+          Write-Host ""
+          Write-Host "--- Registered Distributions ---"
+          if (Get-Command wsl.exe -ErrorAction SilentlyContinue) {
+            # Check if any distros are actually installed/registered
+            & wsl.exe --list --verbose
+          }
+
+          Write-Host ""
+          Write-Host "--- Virtualization Feature Check ---"
+          # Check if Hyper-V/Virtualization is enabled in the OS
+          $virt = Get-CimInstance -ClassName Win32_DeviceGuard -ErrorAction SilentlyContinue
+          if ($virt) {
+            Write-Host "Device Guard Status: $($virt.SecurityServicesRunning)"
+          } else {
+            Write-Host "Could not retrieve Device Guard status via standard CIM."
+          }
+
+          # Check for Virtual Machine Platform feature
+          Write-Host "Checking Windows Features..."
+          $features = Get-WindowsOptionalFeature -Online | Where-Object { $_.FeatureName -match "VirtualMachine" -or $_.FeatureName -match "Subsystem" }
+          $features | Select-Object FeatureName, State | Format-Table -AutoSize
+
+          Write-Host ""
+          Write-Host "--- Test Execution (Attempting to run a command in WSL) ---"
+          if (Get-Command wsl.exe -ErrorAction SilentlyContinue) {
+            # Try to run 'ls' in the default distribution
+            # This will fail if no distribution is registered
+            try {
+              $wslOut = & wsl.exe -e ls /
+              Write-Host "WSL Execution Success:"
+              Write-Host $wslOut
+            } catch {
+              Write-Warning "WSL Execution Failed. This usually means no Linux distribution is registered or WSL is disabled."
+            }
+          }
