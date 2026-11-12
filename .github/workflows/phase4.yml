@@ -1,0 +1,77 @@
+name: Phase 4 - Native Build & C++ Tools Discovery
+
+on:
+  workflow_call:
+
+jobs:
+  discovery:
+    runs-on: windows-11-vs2026-arm
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Native Toolchain Discovery
+        shell: pwsh
+        run: |
+          Write-Host "--- Compilers ---"
+          # Check MSVC (cl.exe)
+          # Note: cl.exe is often only in PATH if the Developer Command Prompt is initialized
+          if (Get-Command cl.exe -ErrorAction SilentlyContinue) {
+            & cl.exe
+          } else {
+            Write-Warning "cl.exe (MSVC) not found in PATH. It may require a Developer Command Prompt environment."
+          }
+
+          # Check GCC / Clang / LLVM
+          foreach ($compiler in @("gcc", "clang", "g++", "clang++")) {
+            if (Get-Command $compiler -ErrorAction SilentlyContinue) {
+              & $compiler --version
+            } else {
+              Write-Host "$compiler not found."
+            }
+          }
+
+          Write-Host ""
+          Write-Host "--- Build Systems ---"
+          foreach ($buildTool in @("cmake", "ninja", "bazel", "make")) {
+            if (Get-Command $buildTool -ErrorAction SilentlyContinue) {
+              & $buildTool --version
+            } else {
+              Write-Host "$buildTool not found."
+            }
+          }
+
+          Write-Host ""
+          Write-Host "--- vcpkg Inventory ---"
+          if (Get-Command vcpkg -ErrorAction SilentlyContinue) {
+            & vcpkg --version
+          } else {
+            Write-Warning "vcpkg command not found in PATH."
+          }
+
+          $vcpkgRoot = $env:VCPKG_INSTALLATION_ROOT
+          Write-Host "VCPKG_INSTALLATION_ROOT Environment Variable: $vcpkgRoot"
+          
+          if (Test-Path "C:\vcpkg") {
+            Write-Host "Default vcpkg path (C:\vcpkg) exists."
+          } else {
+            Write-Warning "Default vcpkg path (C:\vcpkg) does not exist."
+          }
+
+          Write-Host ""
+          Write-Host "--- Shared Libraries (OpenSSL) ---"
+          # Check for openssl binary
+          if (Get-Command openssl -ErrorAction SilentlyContinue) {
+            & openssl version
+          } else {
+            Write-Host "openssl command not found. Checking common installation paths..."
+            $commonPaths = @(
+              "C:\Program Files\OpenSSL\bin\openssl.exe",
+              "C:\OpenSSL\bin\openssl.exe",
+              "C:\tools\openssl\bin\openssl.exe"
+            )
+            foreach ($path in $commonPaths) {
+              if (Test-Path $path) {
+                Write-Host "Found OpenSSL at: $path"
+              }
+            }
+          }
