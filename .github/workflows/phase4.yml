@@ -12,15 +12,7 @@ jobs:
       - name: Native Toolchain Discovery
         shell: pwsh
         run: |
-          Write-Host "--- Compilers ---"
-          # Check MSVC (cl.exe)
-          # Note: cl.exe is often only in PATH if the Developer Command Prompt is initialized
-          if (Get-Command cl.exe -ErrorAction SilentlyContinue) {
-            & cl.exe
-          } else {
-            Write-Warning "cl.exe (MSVC) not found in PATH. It may require a Developer Command Prompt environment."
-          }
-
+          Write-Host "--- Compilers (Standard PATH) ---"
           # Check GCC / Clang / LLVM
           foreach ($compiler in @("gcc", "clang", "g++", "clang++")) {
             if (Get-Command $compiler -ErrorAction SilentlyContinue) {
@@ -28,6 +20,34 @@ jobs:
             } else {
               Write-Host "$compiler not found."
             }
+          }
+
+          Write-Host ""
+          Write-Host "--- MSVC (cl.exe) Discovery & Init ---"
+          
+          # 1. Use vswhere to find the latest Visual Studio installation
+          $vsPath = (& "vswhere.exe" -latest -property installationPath).ToString()
+          
+          if ([string]::IsNullOrWhiteSpace($vsPath)) {
+            Write-Error "Visual Studio installation not found via vswhere."
+            exit 1
+          }
+          Write-Host "Visual Studio Path: $vsPath"
+
+          # 2. Construct path to the Developer Command Prompt initialization script
+          $vsDevCmd = Join-Path $vsPath "Common7\IDE\VsDevCmd.bat"
+
+          if (Test-Path $vsDevCmd) {
+            Write-Host "Found VsDevCmd.bat at: $vsDevCmd"
+            Write-Host "Initializing MSVC environment and checking cl.exe..."
+            
+            # We must use cmd /c to call the .bat file because batch variables 
+            # do not persist in a PowerShell session.
+            # We wrap the call and cl.exe in the same cmd instance.
+            $clCheck = cmd /c "call `"$vsDevCmd`" && cl.exe"
+            Write-Host $clCheck
+          } else {
+            Write-Warning "VsDevCmd.bat not found at $vsDevCmd. MSVC environment cannot be initialized."
           }
 
           Write-Host ""
@@ -59,7 +79,6 @@ jobs:
 
           Write-Host ""
           Write-Host "--- Shared Libraries (OpenSSL) ---"
-          # Check for openssl binary
           if (Get-Command openssl -ErrorAction SilentlyContinue) {
             & openssl version
           } else {
