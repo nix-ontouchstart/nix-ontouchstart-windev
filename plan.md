@@ -48,7 +48,6 @@ The goal is to "learn" the `windows-11-vs2026-arm` image in GitHub CI iterativel
 - **Windows Features:** Verified that both `VirtualMachinePlatform` and `Microsoft-Windows-Subsystem-Linux` are marked as **Enabled** in the OS features.
 - **Virtualization:** `Win32_DeviceGuard` status is inaccessible via standard CIM.
 - **Test Execution:** Verified that Linux command execution (e.g., `ls /`) via WSL fails with exit code 1.
-```
 
 ---
 
