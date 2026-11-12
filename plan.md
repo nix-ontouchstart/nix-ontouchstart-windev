@@ -6,7 +6,7 @@ The goal is to "learn" the `windows-11-vs2026-arm` image in GitHub CI iterativel
 - [x] Phase 1: Foundation & Shell Verification (Completed)
 - [x] Phase 2: PowerShell & Rust Toolchain (Completed)
 - [x] Phase 3: .NET & Visual Studio Toolchain (Completed)
-- [ ] Phase 4: Native Build & C++ Tools (Next)
+- [x] Phase 4: Native Build & C++ Tools (Completed)
 - [ ] Phase 5: Connectivity & Specialized Tools (Final)
 
 ## Detailed Phase Breakdown
@@ -25,18 +25,47 @@ The goal is to "learn" the `windows-11-vs2026-arm` image in GitHub CI iterativel
 - **MSBuild:** Confirmed 18.11.1.51303 accessibility.
 - **.NET:** Confirmed SDKs/Runtimes for .NET 8, 9, and 10.
 
-### Phase 4: Native Build & C++ Tools (NEXT)
-**Goal:** Verify the C++ toolchain and native build capabilities.
-1. **Compilers:** Verify `gcc`, `clang` (via LLVM), and MSVC (`cl.exe`) paths.
-2. **Build Systems:** Verify `cmake`, `ninja`, `bazel`, and `make`.
-3. **vcpkg:** Test `vcpkg` command execution and check the `VCPKG_INSTALLATION_ROOT` (C:\vcpkg).
-4. **Libraries:** Verify `OpenSSL` and other shared libraries.
+### Phase 4: Native Build & C++ Tools (DONE)
+- **Compilers:** 
+    - Verified `gcc` (14.2.0) and `g++` (14.2.0) via MinGW.
+    - Verified `clang` (22.1.8) and `clang++` (22.1.8) via LLVM.
+    - Note: `cl.exe` (MSVC) is not in the global PATH (requires Developer Command Prompt initialization).
+- **Build Systems:**
+    - Verified `cmake` (4.4.5).
+    - Verified `bazel` (9.3.2).
+    - Verified `make` (4.4.1).
+    - Note: `ninja` was not detected in the PATH.
+- **vcpkg:** Confirmed `vcpkg` (2026-10-29) is functional with `VCPKG_INSTALLATION_ROOT` set to `C:\vcpkg`.
+- **Libraries:** Verified `OpenSSL` (3.6.5) availability.
 
 ### Phase 5: Connectivity & Specialized Tools
 **Goal:** Verify external integrations and specialized CLI tools.
 1. **Cloud CLIs:** Test `az`, `aws`, `gh` (GitHub CLI) availability.
 2. **Database Tools:** Verify `mysql` and `sqlcmd` availability.
 3. **Web Servers:** Verify Apache/Nginx config paths and status.
+```
+
+---
+
+### Phase 4 Summary Report
+
+The execution of Phase 4 successfully mapped the native build capabilities of the `windows-11-vs2026-arm` image. Key takeaways are as follows:
+
+**1. Compiler Environment:**
+*   **LLVM/Clang:** Fully available and ready for use (`clang` 22.1.8). This is the primary native compiler for the ARM64 architecture in this environment.
+*   **MinGW (GCC):** Available (14.2.0), providing a standard GCC toolchain.
+*   **MSVC (`cl.exe`):** While Visual Studio is installed (Phase 3), `cl.exe` is not exposed in the standard shell PATH. Future build scripts requiring MSVC will need to call the `vswhere` path or use a `Developer Command Prompt` initialization script.
+
+**2. Build Orchestration:**
+*   **CMake & Bazel:** Both are present and ready for complex build dependency management.
+*   **Make:** GNU Make is available for standard `Makefile` workflows.
+*   **Ninja:** **Missing.** If Ninja is required for high-speed builds, it will need to be added to the image or installed via a package manager.
+
+**3. Package Management & Libraries:**
+*   **vcpkg:** Fully operational. The environment variable `VCPKG_INSTALLATION_ROOT` correctly points to `C:\vcpkg`, which is the standard location for pre-installed libraries.
+*   **OpenSSL:** Confirmed as 3.6.5, ensuring cryptographic primitives are available for native builds.
+
+**Conclusion:** The image is highly capable of native C++ development using either the LLVM or MinGW toolchains, with robust support for CMake and Bazel.
 
 The scripts are written as powershell commands in Github Action jobs. Follow the pattern bellow
 
@@ -56,6 +85,9 @@ jobs:
     needs: phase2
     uses: ./.github/workflows/phase3.yml
 
+  phase4:
+    needs: phase3
+    uses: ./.github/workflows/phase4.yml
 ```
 
 callee `./.github/workflows/phase1.yml`
@@ -214,6 +246,88 @@ jobs:
               Write-Host "  [FOUND] $w SDK is installed."
             } else {
               Write-Host "  [MISSING] $w SDK was not found in dotnet --list-sdks"
+            }
+          }
+```
+
+callee `./.github/workflows/phase4.yml`
+
+```yaml
+name: Phase 4 - Native Build & C++ Tools Discovery
+
+on:
+  workflow_call:
+
+jobs:
+  discovery:
+    runs-on: windows-11-vs2026-arm
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Native Toolchain Discovery
+        shell: pwsh
+        run: |
+          Write-Host "--- Compilers ---"
+          # Check MSVC (cl.exe)
+          # Note: cl.exe is often only in PATH if the Developer Command Prompt is initialized
+          if (Get-Command cl.exe -ErrorAction SilentlyContinue) {
+            & cl.exe
+          } else {
+            Write-Warning "cl.exe (MSVC) not found in PATH. It may require a Developer Command Prompt environment."
+          }
+
+          # Check GCC / Clang / LLVM
+          foreach ($compiler in @("gcc", "clang", "g++", "clang++")) {
+            if (Get-Command $compiler -ErrorAction SilentlyContinue) {
+              & $compiler --version
+            } else {
+              Write-Host "$compiler not found."
+            }
+          }
+
+          Write-Host ""
+          Write-Host "--- Build Systems ---"
+          foreach ($buildTool in @("cmake", "ninja", "bazel", "make")) {
+            if (Get-Command $buildTool -ErrorAction SilentlyContinue) {
+              & $buildTool --version
+            } else {
+              Write-Host "$buildTool not found."
+            }
+          }
+
+          Write-Host ""
+          Write-Host "--- vcpkg Inventory ---"
+          if (Get-Command vcpkg -ErrorAction SilentlyContinue) {
+            & vcpkg --version
+          } else {
+            Write-Warning "vcpkg command not found in PATH."
+          }
+
+          $vcpkgRoot = $env:VCPKG_INSTALLATION_ROOT
+          Write-Host "VCPKG_INSTALLATION_ROOT Environment Variable: $vcpkgRoot"
+          
+          if (Test-Path "C:\vcpkg") {
+            Write-Host "Default vcpkg path (C:\vcpkg) exists."
+          } else {
+            Write-Warning "Default vcpkg path (C:\vcpkg) does not exist."
+          }
+
+          Write-Host ""
+          Write-Host "--- Shared Libraries (OpenSSL) ---"
+          # Check for openssl binary
+          if (Get-Command openssl -ErrorAction SilentlyContinue) {
+            & openssl version
+          } else {
+            Write-Host "openssl command not found. Checking common installation paths..."
+            $commonPaths = @(
+              "C:\Program Files\OpenSSL\bin\openssl.exe",
+              "C:\OpenSSL\bin\openssl.exe",
+              "C:\tools\openssl\bin\openssl.exe"
+            )
+            foreach ($path in $commonPaths) {
+              if (Test-Path $path) {
+                Write-Host "Found OpenSSL at: $path"
+              }
             }
           }
 ```
