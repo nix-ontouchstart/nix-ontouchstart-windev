@@ -17,10 +17,10 @@ jobs:
           $cloudClis = @("az", "aws", "gh")
           foreach ($cli in $cloudClis) {
             if (Get-Command $cli -ErrorAction SilentlyContinue) {
-              Write-Host "Found $cli:"
+              Write-Host "Found ${cli}:"
               & $cli --version
             } else {
-              Write-Host "$cli CLI is not installed or not in PATH."
+              Write-Host "${cli} CLI is not installed or not in PATH."
             }
           }
 
@@ -30,10 +30,10 @@ jobs:
           $dbTools = @("mysql", "sqlcmd")
           foreach ($tool in $dbTools) {
             if (Get-Command $tool -ErrorAction SilentlyContinue) {
-              Write-Host "Found $tool:"
+              Write-Host "Found ${tool}:"
               & $tool --version
             } else {
-              Write-Host "$tool is not installed or not in PATH."
+              Write-Host "${tool} is not installed or not in PATH."
             }
           }
 
@@ -70,4 +70,3 @@ jobs:
           } catch {
             Write-Warning "Could not perform Test-NetConnection."
           }
-
