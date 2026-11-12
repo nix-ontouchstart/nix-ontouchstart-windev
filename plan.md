@@ -7,7 +7,7 @@ The goal is to "learn" the `windows-11-vs2026-arm` image in GitHub CI iterativel
 - [x] Phase 2: PowerShell & Rust Toolchain (Completed)
 - [x] Phase 3: .NET & Visual Studio Toolchain (Completed)
 - [x] Phase 4: Native Build & C++ Tools (Completed)
-- [ ] Phase 5: Connectivity & Specialized Tools (Final)
+- [x] Phase 5: Connectivity & Specialized Tools (Completed)
 
 ## Detailed Phase Breakdown
 
@@ -38,34 +38,43 @@ The goal is to "learn" the `windows-11-vs2026-arm` image in GitHub CI iterativel
 - **vcpkg:** Confirmed functional with `VCPKG_INSTALLATION_ROOT` set to `C:\vcpkg`.
 - **Libraries:** Verified `OpenSSL` (3.6.5) availability.
 
-### Phase 5: Connectivity & Specialized Tools
-**Goal:** Verify external integrations and specialized CLI tools.
-1. **Cloud CLIs:** Test `az`, `aws`, `gh` (GitHub CLI) availability.
-2. **Database Tools:** Verify `mysql` and `sqlcmd` availability.
-3. **Web Servers:** Verify Apache/Nginx config paths and status.
+### Phase 5: Connectivity & Specialized Tools (DONE)
+- **Cloud CLIs:** Verified `az` (2.91.0), `aws` (2.39.3), and `gh` (2.103.3) are available.
+- **Database Tools:** Verified `mysql` (8.4.13) and `sqlcmd` are present.
+- **Web Servers:** Identified `C:\inetpub` (IIS) as the primary web server directory.
+- **Networking:** Confirmed the environment is **restricted** (No DNS resolution or Port 443 connectivity).
 ```
 
 ---
 
-### Phase 4 Summary Report
+### Final Summary Report: `windows-11-vs2026-arm` Environment
 
-The execution of Phase 4 provided a clear map of the native compilation environment. The following findings are critical for future build configurations:
+The iterative discovery of the `windows-11-vs2026-arm` image is now complete. Below is the final synthesis of the environment's capabilities and limitations.
 
-**1. Primary Compiler Strategy:**
-*   **Clang (Winner):** The image is heavily optimized for `clang` (v22.1.8). Since it specifically targets `aarch64-pc-windows-msvc`, this is the recommended primary compiler for native ARM64 C++ builds in this environment.
-*   **GCC (Alternative):** A MinGW-based `gcc` (14.2.0) is available as a fallback.
-*   **MSVC Issue:** While Visual Studio 2026 Enterprise is present, the automation script could not find `VsDevCmd.bat` in the standard `Common7\IDE` path. This suggests that for MSVC-specific builds, we may need to manually locate the compiler binaries or use a different initialization script provided by the image.
+#### 1. Core Architecture & Shell
+*   **OS:** Windows 11 Enterprise (ARM64).
+*   **Shells:** Supports standard `bash`, `PowerShell` (5.1), and `pwsh` (7.6.9). The environment is fully prepared for mixed-shell workflows.
 
-**2. Build Orchestration:**
-*   **CMake & Bazel:** Both are present and ready for use. Bazel (9.3.2) is particularly useful for large-scale projects.
-*   **Make:** GNU Make is available for standard Makefile workflows.
-*   **Ninja:** **Not available.** If the project requires Ninja for its build speed, it will need to be installed or provided as a binary.
+#### 2. Development Toolchains
+*   **Primary Native Strategy:** **Clang (v22.1.8)** is the powerhouse of this image. It is fully configured for `aarch64-pc-windows-msvc` and should be the default choice for C++ development.
+*   **Fallback Native Strategy:** **GCC (v14.2.0)** via MinGW is available for projects requiring standard GCC compatibility.
+*   **MSVC Caveat:** While Visual Studio 2026 Enterprise is installed, the standard `VsDevCmd.bat` path is non-standard. Projects requiring `cl.exe` must be configured to locate the binaries manually or via a custom initialization script.
+*   **Rust:** A modern Rust toolchain (1.99.1) is ready for systems programming.
+*   **.NET:** High compatibility with modern .NET (8, 9, and 10 SDKs/Runtimes).
 
-**3. Package Management:**
-*   **vcpkg:** Fully verified. The environment is set up to use `C:\vcpkg`, which simplifies library dependency management significantly.
-*   **OpenSSL:** Version 3.6.5 is confirmed, providing the necessary base for secure communications and cryptographic operations.
+#### 3. Build Orchestration & Packages
+*   **Build Systems:** Supports `CMake`, `Bazel`, and `Make`. **Note:** `Ninja` is absent and must be provided if required for high-speed builds.
+*   **Package Management:** `vcpkg` is pre-configured at `C:\vcpkg`, making it the primary method for managing C++ dependencies.
+*   **Cryptography:** `OpenSSL` (3.6.5) is available for secure operations.
 
-**Conclusion:** The environment is extremely "ready" for Clang-based native development. The primary hurdle for MSVC-specific workflows will be identifying the correct environment initialization script, as the standard path was not found.
+#### 4. Infrastructure & Connectivity
+*   **Cloud Readiness:** The image includes `az`, `aws`, and `gh` CLIs, making it suitable for automated cloud deployments and GitHub Actions management.
+*   **Database Support:** Includes `mysql` and `sqlcmd` for database-related tasks.
+*   **Networking Isolation:** **Critical Finding.** The runner has restricted connectivity (No DNS/External Port 443). Build scripts should not rely on external downloads during the execution phase; all dependencies should be pre-cached or bundled.
+
+#### Final Conclusion
+The `windows-11-vs2026-arm` image is a **highly-specialized, Clang-centric native build environment**. It is optimized for ARM64 development, specifically for projects leveraging Rust, .NET, and C++ via Clang and vcpkg. Due to its networking restrictions, it is best suited for **self-contained build pipelines** where all artifacts are present in the workspace.
+
 
 ---
 
