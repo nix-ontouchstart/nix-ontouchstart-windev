@@ -14,7 +14,8 @@ jobs:
         run: |
           Write-Host "--- WSL Binary Check ---"
           if (Get-Command wsl.exe -ErrorAction SilentlyContinue) {
-            & wsl.exe --version
+            # Capture output and ignore errors for the version check
+            & wsl.exe --version 2>&1 | Out-String
           } else {
             Write-Warning "wsl.exe not found in PATH."
           }
@@ -22,8 +23,8 @@ jobs:
           Write-Host ""
           Write-Host "--- Registered Distributions ---"
           if (Get-Command wsl.exe -ErrorAction SilentlyContinue) {
-            # Check if any distros are actually installed/registered
-            & wsl.exe --list --verbose
+            # Capture output and ignore errors for the list check
+            & wsl.exe --list --verbose 2>&1 | Out-String
           }
 
           Write-Host ""
@@ -44,13 +45,19 @@ jobs:
           Write-Host ""
           Write-Host "--- Test Execution (Attempting to run a command in WSL) ---"
           if (Get-Command wsl.exe -ErrorAction SilentlyContinue) {
-            # Try to run 'ls' in the default distribution
-            # This will fail if no distribution is registered
-            try {
-              $wslOut = & wsl.exe -e ls /
+            # Use 2>&1 to capture stderr and check $LASTEXITCODE to prevent script failure
+            $wslOut = & wsl.exe -e ls / 2>&1
+            if ($LASTEXITCODE -eq 0) {
               Write-Host "WSL Execution Success:"
               Write-Host $wslOut
-            } catch {
-              Write-Warning "WSL Execution Failed. This usually means no Linux distribution is registered or WSL is disabled."
+            } else {
+              Write-Warning "WSL Execution Failed (Exit Code: $LASTEXITCODE). This indicates the subsystem is not functional or no distribution is registered."
+              Write-Host "Error Output: $wslOut"
             }
+          } else {
+            Write-Warning "wsl.exe not found, skipping execution test."
           }
+
+          Write-Host ""
+          Write-Host "Discovery Phase 6 Complete."
+          exit 0
