@@ -8,6 +8,7 @@ The goal is to "learn" the `windows-11-vs2026-arm` image in GitHub CI iterativel
 - [x] Phase 3: .NET & Visual Studio Toolchain (Completed)
 - [x] Phase 4: Native Build & C++ Tools (Completed)
 - [x] Phase 5: Connectivity & Specialized Tools (Completed)
+- [x] Phase 6: WSL & Virtualization Discovery (Completed)
 
 ## Detailed Phase Breakdown
 
@@ -29,20 +30,24 @@ The goal is to "learn" the `windows-11-vs2026-arm` image in GitHub CI iterativel
 - **Compilers:** 
     - **LLVM/Clang:** Confirmed `clang` (22.1.8) and `clang++` (22.1.8) are fully available and target `aarch64-pc-windows-msvc`.
     - **MinGW:** Confirmed `gcc` (14.2.0) and `g++` (14.2.0).
-    - **MSVC (`cl.exe`):** Visual Studio is detected at `C:\Program Files\Microsoft Visual Studio\18\Enterprise`. However, the standard `VsDevCmd.bat` was not found in the expected `Common7\IDE` subdirectory, indicating a non-standard layout or a build-tools-only installation.
+    - **MSVC (`cl.exe`):** Visual Studio is detected at `C:\Program Files\Microsoft Visual Studio\18\Enterprise`. However, the standard `VsDevCmd.bat` path is non-standard, requiring manual path configuration.
 - **Build Systems:**
-    - Verified `cmake` (4.4.5).
-    - Verified `bazel` (9.3.2).
-    - Verified `make` (4.4.1).
+    - Verified `cmake` (4.4.5), `bazel` (9.3.2), and `make` (4.4.1).
     - **Missing:** `ninja` was not detected in the PATH.
 - **vcpkg:** Confirmed functional with `VCPKG_INSTALLATION_ROOT` set to `C:\vcpkg`.
 - **Libraries:** Verified `OpenSSL` (3.6.5) availability.
 
 ### Phase 5: Connectivity & Specialized Tools (DONE)
-- **Cloud CLIs:** Verified `az` (2.91.0), `aws` (2.39.3), and `gh` (2.103.3) are available.
+- **Cloud CLIs:** Verified `az` (2.91.0), `aws` (2.39.3), and `gh` (2.103.3).
 - **Database Tools:** Verified `mysql` (8.4.13) and `sqlcmd` are present.
 - **Web Servers:** Identified `C:\inetpub` (IIS) as the primary web server directory.
-- **Networking:** Confirmed the environment is **restricted** (No DNS resolution or Port 443 connectivity).
+- **Networking:** Confirmed the environment is **restricted** (No DNS resolution and Port 443 connectivity failed).
+
+### Phase 6: WSL & Virtualization Discovery (DONE)
+- **WSL Status:** Confirmed `wsl.exe` is present but non-functional. It returns: *"The Windows Subsystem for Linux is not installed."*
+- **Windows Features:** Verified that both `VirtualMachinePlatform` and `Microsoft-Windows-Subsystem-Linux` are marked as **Enabled** in the OS features.
+- **Virtualization:** `Win32_DeviceGuard` status is inaccessible via standard CIM.
+- **Test Execution:** Verified that Linux command execution (e.g., `ls /`) via WSL fails with exit code 1.
 ```
 
 ---
@@ -67,20 +72,23 @@ The iterative discovery of the `windows-11-vs2026-arm` image is now complete. Be
 *   **Package Management:** `vcpkg` is pre-configured at `C:\vcpkg`, making it the primary method for managing C++ dependencies.
 *   **Cryptography:** `OpenSSL` (3.6.5) is available for secure operations.
 
-#### 4. Infrastructure & Connectivity
+#### 4. Virtualization & Linux Support
+*   **WSL Status:** **Non-Functional.** Although the Windows Optional Features for "Virtual Machine Platform" and "Windows Subsystem for Linux" are reported as "Enabled," the `wsl.exe` binary reports that the subsystem is not installed. Consequently, **Linux command execution via WSL is not available** in this runner.
+*   **Virtualization:** The environment supports the underlying infrastructure for virtualization (as indicated by enabled features), but standard CIM queries for Device Guard status are restricted.
+
+#### 5. Infrastructure & Connectivity
 *   **Cloud Readiness:** The image includes `az`, `aws`, and `gh` CLIs, making it suitable for automated cloud deployments and GitHub Actions management.
-*   **Database Support:** Includes `mysql` and `sqlcmd` for database-related tasks.
+*   **Database Support:** Includes `mysql` (8.4.13) and `sqlcmd` for database-related tasks.
 *   **Networking Isolation:** **Critical Finding.** The runner has restricted connectivity (No DNS/External Port 443). Build scripts should not rely on external downloads during the execution phase; all dependencies should be pre-cached or bundled.
 
 #### Final Conclusion
-The `windows-11-vs2026-arm` image is a **highly-specialized, Clang-centric native build environment**. It is optimized for ARM64 development, specifically for projects leveraging Rust, .NET, and C++ via Clang and vcpkg. Due to its networking restrictions, it is best suited for **self-contained build pipelines** where all artifacts are present in the workspace.
+The `windows-11-vs2026-arm` image is a **highly-specialized, Clang-centric native build environment**. It is optimized for ARM64 development, specifically for projects leveraging Rust, .NET, and C++ via Clang and vcpkg. A notable limitation is that **WSL is not functional** despite the features being enabled. Due to its networking restrictions, it is best suited for **self-contained build pipelines** where all artifacts are present in the workspace.
 
+## Code
 
----
+These scripts are written as powershell commands in Github Action jobs. Follow the pattern bellow
 
-The scripts are written as powershell commands in Github Action jobs. Follow the pattern bellow
-
-caller `./.github/workflows/dev.yml`
+### caller `./.github/workflows/dev.yml`
 
 ```yaml
 on: push
@@ -99,9 +107,17 @@ jobs:
   phase4:
     needs: phase3
     uses: ./.github/workflows/phase4.yml
+
+  phase5:
+    needs: phase4
+    uses: ./.github/workflows/phase5.yml
+
+  phase6:
+    needs: phase5
+    uses: ./.github/workflows/phase6.yml
 ```
 
-callee `./.github/workflows/phase1.yml`
+### callee `./.github/workflows/phase1.yml`
 
 ```yaml
 name: Phase 1 - Foundation Discovery
@@ -140,7 +156,7 @@ jobs:
           [System.Environment]::GetEnvironmentVariables("Process").GetEnumerator() | ForEach-Object { Write-Host "$($_.Key)=$($_.Value)" }
 ```
 
-callee `./.github/workflows/phase2.yml`
+### callee `./.github/workflows/phase2.yml`
 
 ```yaml
 name: Phase 2 - PowerShell & Rust Discovery
@@ -187,7 +203,7 @@ jobs:
           cargo install --list
 ```
 
-callee `./.github/workflows/phase3.yml`
+### callee `./.github/workflows/phase3.yml`
 
 ```yaml
 name: Phase 3 - .NET & Visual Studio Discovery
@@ -261,7 +277,7 @@ jobs:
           }
 ```
 
-callee `./.github/workflows/phase4.yml`
+### callee `./.github/workflows/phase4.yml`
 
 ```yaml
 name: Phase 4 - Native Build & C++ Tools Discovery
@@ -360,4 +376,155 @@ jobs:
               }
             }
           }
+```
+
+### callee `./.github/workflows/phase5.yml`
+
+```yaml
+name: Phase 5 - Connectivity & Specialized Tools Discovery
+
+on:
+  workflow_call:
+
+jobs:
+  discovery:
+    runs-on: windows-11-vs2026-arm
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Connectivity & Specialized Tools Inventory
+        shell: pwsh
+        run: |
+          Write-Host "--- Cloud CLIs ---"
+          $cloudClis = @("az", "aws", "gh")
+          foreach ($cli in $cloudClis) {
+            if (Get-Command $cli -ErrorAction SilentlyContinue) {
+              Write-Host "Found ${cli}:"
+              & $cli --version
+            } else {
+              Write-Host "${cli} CLI is not installed or not in PATH."
+            }
+          }
+
+          Write-Host ""
+          Write-Host "--- Database Tools ---"
+          $dbTools = @("mysql", "sqlcmd")
+          foreach ($tool in $dbTools) {
+            if (Get-Command $tool -ErrorAction SilentlyContinue) {
+              Write-Host "Found ${tool}:"
+              if ($tool -eq "sqlcmd") {
+                # sqlcmd doesn't support --version, so we just check if it's executable
+                Write-Host "  (sqlcmd detected, skipping --version check)"
+              } else {
+                & $tool --version
+              }
+            } else {
+              Write-Host "${tool} is not installed or not in PATH."
+            }
+          }
+
+          Write-Host ""
+          Write-Host "--- Web Server Discovery ---"
+          $webPaths = @(
+            "C:\Apache24",
+            "C:\nginx",
+            "C:\Program Files\Apache",
+            "C:\Program Files\nginx",
+            "C:\inetpub"
+          )
+          
+          foreach ($path in $webPaths) {
+            if (Test-Path $path) {
+              Write-Host "Found Web Server/IIS Directory: $path"
+            }
+          }
+
+          Write-Host ""
+          Write-Host "--- Networking & Connectivity Check ---"
+          # We wrap these in a way that even if they fail, the script continues
+          try {
+            $dns = [System.Net.Dns]::GetHostEntry("google.com")
+            Write-Host "DNS Resolution Success: $($dns.AddressList | Select-Object -ExpandProperty IPAddress -First 1)"
+          } catch {
+            Write-Warning "DNS Resolution Failed (This may be expected in a restricted environment)."
+          }
+
+          try {
+            $ping = Test-NetConnection -ComputerName google.com -Port 443 -ErrorAction Stop
+            Write-Host "Port 443 Connectivity: $($ping.PingSucceeded)"
+          } catch {
+            Write-Warning "Port 443 Connectivity check failed (No internet access or firewalled)."
+          }
+
+          # Final safety: ensure the script always exits with 0 so the job completes
+          Write-Host "Discovery Phase 5 Complete."
+          exit 0
+```
+
+### callee `./.github/workflows/phase6.yml`
+
+```yaml
+name: Phase 6 - WSL & Virtualization Discovery
+
+on:
+  workflow_call:
+
+jobs:
+  discovery:
+    runs-on: windows-11-vs2026-arm
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: WSL and Virtualization Check
+        shell: pwsh
+        run: |
+          Write-Host "--- WSL Binary Check ---"
+          if (Get-Command wsl.exe -ErrorAction SilentlyContinue) {
+            # Capture output and ignore errors for the version check
+            & wsl.exe --version 2>&1 | Out-String
+          } else {
+            Write-Warning "wsl.exe not found in PATH."
+          }
+
+          Write-Host ""
+          Write-Host "--- Registered Distributions ---"
+          if (Get-Command wsl.exe -ErrorAction SilentlyContinue) {
+            # Capture output and ignore errors for the list check
+            & wsl.exe --list --verbose 2>&1 | Out-String
+          }
+
+          Write-Host ""
+          Write-Host "--- Virtualization Feature Check ---"
+          # Check if Hyper-V/Virtualization is enabled in the OS
+          $virt = Get-CimInstance -ClassName Win32_DeviceGuard -ErrorAction SilentlyContinue
+          if ($virt) {
+            Write-Host "Device Guard Status: $($virt.SecurityServicesRunning)"
+          } else {
+            Write-Host "Could not retrieve Device Guard status via standard CIM."
+          }
+
+          # Check for Virtual Machine Platform feature
+          Write-Host "Checking Windows Features..."
+          $features = Get-WindowsOptionalFeature -Online | Where-Object { $_.FeatureName -match "VirtualMachine" -or $_.FeatureName -match "Subsystem" }
+          $features | Select-Object FeatureName, State | Format-Table -AutoSize
+
+          Write-Host ""
+          Write-Host "--- Test Execution (Attempting to run a command in WSL) ---"
+          if (Get-Command wsl.exe -ErrorAction SilentlyContinue) {
+            # Use 2>&1 to capture stderr and check $LASTEXITCODE to prevent script failure
+            $wslOut = & wsl.exe -e ls / 2>&1
+            if ($LASTEXITCODE -eq 0) {
+              Write-Host "WSL Execution Success:"
+              Write-Host $wslOut
+            } else {
+              Write-Warning "WSL Execution Failed (Exit Code: $LASTEXITCODE). This indicates the subsystem is not functional or no distribution is registered."
+              Write-Host "Error Output: $wslOut"
+            }
+          } else {
+            Write-Warning "wsl.exe not found, skipping execution test."
+          }
+
+          Write-Host ""
+          Write-Host "Discovery Phase 6 Complete."
+          exit 0
 ```

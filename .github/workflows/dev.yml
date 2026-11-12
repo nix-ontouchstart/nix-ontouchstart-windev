@@ -1,24 +1,24 @@
 on: push
 jobs:
-  #phase1:
-  #  uses: ./.github/workflows/phase1.yml
+  phase1:
+    uses: ./.github/workflows/phase1.yml
 
-  #phase2:
-  #  needs: phase1
-  #  uses: ./.github/workflows/phase2.yml
+  phase2:
+    needs: phase1
+    uses: ./.github/workflows/phase2.yml
 
-  #phase3:
-  #  needs: phase2
-  #  uses: ./.github/workflows/phase3.yml
+  phase3:
+    needs: phase2
+    uses: ./.github/workflows/phase3.yml
 
-  #phase4:
-  #  needs: phase3
-  #  uses: ./.github/workflows/phase4.yml
+  phase4:
+    needs: phase3
+    uses: ./.github/workflows/phase4.yml
 
-  # phase5:
-  #  needs: phase4
-  #  uses: ./.github/workflows/phase5.yml
+  phase5:
+    needs: phase4
+    uses: ./.github/workflows/phase5.yml
 
   phase6:
-    # needs: phase5
+    needs: phase5
     uses: ./.github/workflows/phase6.yml

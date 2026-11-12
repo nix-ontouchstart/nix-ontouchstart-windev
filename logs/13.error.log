@@ -1,0 +1,225 @@
+2026-11-12T14:39:41.5739659Z Current runner version: '2.338.2'
+2026-11-12T14:39:41.5820573Z ##[group]Runner Image Provisioner
+2026-11-12T14:39:41.5821376Z Hosted Compute Agent
+2026-11-12T14:39:41.5821915Z Version: 20261028.624
+2026-11-12T14:39:41.5822429Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-12T14:39:41.5823002Z Build Date: 2026-10-28T21:51:42Z
+2026-11-12T14:39:41.5823545Z Worker ID: {e0054603-025e-4b3d-b162-c717ff6f358d}
+2026-11-12T14:39:41.5824111Z Region: northcentralus
+2026-11-12T14:39:41.5824557Z Cloud: Azure
+2026-11-12T14:39:41.5824972Z ##[endgroup]
+2026-11-12T14:39:41.5826498Z ##[group]Operating System
+2026-11-12T14:39:41.5827019Z Microsoft Windows 11
+2026-11-12T14:39:41.5827499Z 10.0.26200
+2026-11-12T14:39:41.5827900Z Enterprise
+2026-11-12T14:39:41.5828310Z ##[endgroup]
+2026-11-12T14:39:41.5828737Z ##[group]Runner Image
+2026-11-12T14:39:41.5829208Z Image: windows-11-vs2026-arm64
+2026-11-12T14:39:41.5829699Z Version: 20261101.203.1
+2026-11-12T14:39:41.5831392Z Included Software: https://github.com/actions/runner-images/blob/win11-vs2026-arm64/20261101.203/images/windows/Windows11-VS2026-Arm64-Readme.md
+2026-11-12T14:39:41.5832869Z Image Release: https://github.com/actions/runner-images/releases/tag/win11-vs2026-arm64%2F20261101.203
+2026-11-12T14:39:41.5833713Z ##[endgroup]
+2026-11-12T14:39:41.5835094Z ##[group]GITHUB_TOKEN Permissions
+2026-11-12T14:39:41.5837558Z Contents: read
+2026-11-12T14:39:41.5838036Z Metadata: read
+2026-11-12T14:39:41.5838468Z Packages: read
+2026-11-12T14:39:41.5838888Z ##[endgroup]
+2026-11-12T14:39:41.5841436Z Secret source: Actions
+2026-11-12T14:39:41.5842337Z Cache mode: write
+2026-11-12T14:39:41.5842979Z Prepare workflow directory
+2026-11-12T14:39:41.6275820Z Prepare all required actions
+2026-11-12T14:39:41.6331155Z Getting action download info
+2026-11-12T14:39:41.8775146Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-12T14:39:42.3708594Z Uses: nix-ontouchstart/nix-ontouchstart-windev/.github/workflows/phase6.yml@refs/heads/main (41498b5d63c4ba75b2fdbb6e5619922d90182230)
+2026-11-12T14:39:42.3713759Z Complete job name: phase6 / discovery
+2026-11-12T14:39:42.5621471Z ##[group]Run actions/checkout@v7
+2026-11-12T14:39:42.5623134Z with:
+2026-11-12T14:39:42.5623669Z   repository: nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T14:39:42.5627638Z   token: ***
+2026-11-12T14:39:42.5628067Z   ssh-strict: true
+2026-11-12T14:39:42.5628488Z   ssh-user: git
+2026-11-12T14:39:42.5628920Z   persist-credentials: true
+2026-11-12T14:39:42.5629389Z   clean: true
+2026-11-12T14:39:42.5629820Z   sparse-checkout-cone-mode: true
+2026-11-12T14:39:42.5630316Z   fetch-depth: 1
+2026-11-12T14:39:42.5630739Z   fetch-tags: false
+2026-11-12T14:39:42.5631171Z   show-progress: true
+2026-11-12T14:39:42.5631605Z   lfs: false
+2026-11-12T14:39:42.5632009Z   submodules: false
+2026-11-12T14:39:42.5632456Z   set-safe-directory: true
+2026-11-12T14:39:42.5632947Z   allow-unsafe-pr-checkout: false
+2026-11-12T14:39:42.5633936Z ##[endgroup]
+2026-11-12T14:39:42.8283998Z Syncing repository: nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T14:39:42.8286157Z ##[group]Getting Git version info
+2026-11-12T14:39:42.8286949Z Working directory is 'C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev'
+2026-11-12T14:39:42.9362008Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-12T14:39:43.4097564Z git version 2.56.0.windows.4
+2026-11-12T14:39:43.4163400Z ##[endgroup]
+2026-11-12T14:39:43.4201139Z Temporarily overriding HOME='C:\a\_temp\4f7e4066-b0bd-45e6-bec6-1e9b21f8bf74' before making global git config changes
+2026-11-12T14:39:43.4203455Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-12T14:39:43.4211825Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-12T14:39:43.5024299Z Deleting the contents of 'C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev'
+2026-11-12T14:39:43.5033034Z ##[group]Determining repository object format
+2026-11-12T14:39:43.5037864Z ##[endgroup]
+2026-11-12T14:39:43.5039111Z ##[group]Initializing the repository
+2026-11-12T14:39:43.5044405Z [command]"C:\Program Files\Git\bin\git.exe" init C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-12T14:39:43.6435979Z Initialized empty Git repository in C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/
+2026-11-12T14:39:43.6503863Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T14:39:43.7208766Z ##[endgroup]
+2026-11-12T14:39:43.7209489Z ##[group]Disabling automatic garbage collection
+2026-11-12T14:39:43.7218309Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-12T14:39:43.7759539Z ##[endgroup]
+2026-11-12T14:39:43.7760229Z ##[group]Setting up auth
+2026-11-12T14:39:43.7760764Z Removing SSH command configuration
+2026-11-12T14:39:43.7771991Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-12T14:39:43.8306854Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-12T14:39:46.1969490Z Removing HTTP extra header
+2026-11-12T14:39:46.1972270Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-12T14:39:46.2556542Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-12T14:39:47.5827007Z Removing includeIf entries pointing to credentials config files
+2026-11-12T14:39:47.5838490Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-12T14:39:47.6386662Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-12T14:39:48.9650195Z [command]"C:\Program Files\Git\bin\git.exe" config --file C:\a\_temp\git-credentials-bbd440ec-28e9-4223-823d-6a9dd5ddc4db.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-12T14:39:49.0243492Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path C:\a\_temp\git-credentials-bbd440ec-28e9-4223-823d-6a9dd5ddc4db.config
+2026-11-12T14:39:49.0806803Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path C:\a\_temp\git-credentials-bbd440ec-28e9-4223-823d-6a9dd5ddc4db.config
+2026-11-12T14:39:49.1407711Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-bbd440ec-28e9-4223-823d-6a9dd5ddc4db.config
+2026-11-12T14:39:49.2002180Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-bbd440ec-28e9-4223-823d-6a9dd5ddc4db.config
+2026-11-12T14:39:49.2566135Z ##[endgroup]
+2026-11-12T14:39:49.2578263Z ##[group]Fetching the repository
+2026-11-12T14:39:49.2579464Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +41498b5d63c4ba75b2fdbb6e5619922d90182230:refs/remotes/origin/main
+2026-11-12T14:39:50.4713540Z From https://github.com/nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T14:39:50.4714118Z  * [new ref]         41498b5d63c4ba75b2fdbb6e5619922d90182230 -> origin/main
+2026-11-12T14:39:50.4782038Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/main
+2026-11-12T14:39:50.5327107Z   origin/main
+2026-11-12T14:39:50.5387632Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/main
+2026-11-12T14:39:50.5933247Z 41498b5d63c4ba75b2fdbb6e5619922d90182230
+2026-11-12T14:39:50.5984505Z ##[endgroup]
+2026-11-12T14:39:50.5984881Z ##[group]Determining the checkout info
+2026-11-12T14:39:50.5985675Z ##[endgroup]
+2026-11-12T14:39:50.5996146Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-12T14:39:50.6729641Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-12T14:39:50.7291897Z ##[group]Checking out the ref
+2026-11-12T14:39:50.7301529Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-11-12T14:39:50.8673672Z Switched to a new branch 'main'
+2026-11-12T14:39:50.8801933Z branch 'main' set up to track 'origin/main'.
+2026-11-12T14:39:50.8863945Z ##[endgroup]
+2026-11-12T14:39:50.9510216Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-12T14:39:51.0007860Z 41498b5d63c4ba75b2fdbb6e5619922d90182230
+2026-11-12T14:39:51.0625213Z ##[group]Run Write-Host "--- WSL Binary Check ---"
+2026-11-12T14:39:51.0625911Z [36;1mWrite-Host "--- WSL Binary Check ---"[0m
+2026-11-12T14:39:51.0626262Z [36;1mif (Get-Command wsl.exe -ErrorAction SilentlyContinue) {[0m
+2026-11-12T14:39:51.0626611Z [36;1m  & wsl.exe --version[0m
+2026-11-12T14:39:51.0626836Z [36;1m} else {[0m
+2026-11-12T14:39:51.0627066Z [36;1m  Write-Warning "wsl.exe not found in PATH."[0m
+2026-11-12T14:39:51.0627328Z [36;1m}[0m
+2026-11-12T14:39:51.0627544Z [36;1m[0m
+2026-11-12T14:39:51.0627738Z [36;1mWrite-Host ""[0m
+2026-11-12T14:39:51.0627981Z [36;1mWrite-Host "--- Registered Distributions ---"[0m
+2026-11-12T14:39:51.0628332Z [36;1mif (Get-Command wsl.exe -ErrorAction SilentlyContinue) {[0m
+2026-11-12T14:39:51.0628715Z [36;1m  # Check if any distros are actually installed/registered[0m
+2026-11-12T14:39:51.0629033Z [36;1m  & wsl.exe --list --verbose[0m
+2026-11-12T14:39:51.0629309Z [36;1m}[0m
+2026-11-12T14:39:51.0629507Z [36;1m[0m
+2026-11-12T14:39:51.0629666Z [36;1mWrite-Host ""[0m
+2026-11-12T14:39:51.0629916Z [36;1mWrite-Host "--- Virtualization Feature Check ---"[0m
+2026-11-12T14:39:51.0630295Z [36;1m# Check if Hyper-V/Virtualization is enabled in the OS[0m
+2026-11-12T14:39:51.0630762Z [36;1m$virt = Get-CimInstance -ClassName Win32_DeviceGuard -ErrorAction SilentlyContinue[0m
+2026-11-12T14:39:51.0631160Z [36;1mif ($virt) {[0m
+2026-11-12T14:39:51.0631481Z [36;1m  Write-Host "Device Guard Status: $($virt.SecurityServicesRunning)"[0m
+2026-11-12T14:39:51.0631825Z [36;1m} else {[0m
+2026-11-12T14:39:51.0632115Z [36;1m  Write-Host "Could not retrieve Device Guard status via standard CIM."[0m
+2026-11-12T14:39:51.0632570Z [36;1m}[0m
+2026-11-12T14:39:51.0632724Z [36;1m[0m
+2026-11-12T14:39:51.0632925Z [36;1m# Check for Virtual Machine Platform feature[0m
+2026-11-12T14:39:51.0633234Z [36;1mWrite-Host "Checking Windows Features..."[0m
+2026-11-12T14:39:51.0633892Z [36;1m$features = Get-WindowsOptionalFeature -Online | Where-Object { $_.FeatureName -match "VirtualMachine" -or $_.FeatureName -match "Subsystem" }[0m
+2026-11-12T14:39:51.0634618Z [36;1m$features | Select-Object FeatureName, State | Format-Table -AutoSize[0m
+2026-11-12T14:39:51.0634963Z [36;1m[0m
+2026-11-12T14:39:51.0635123Z [36;1mWrite-Host ""[0m
+2026-11-12T14:39:51.0635660Z [36;1mWrite-Host "--- Test Execution (Attempting to run a command in WSL) ---"[0m
+2026-11-12T14:39:51.0636155Z [36;1mif (Get-Command wsl.exe -ErrorAction SilentlyContinue) {[0m
+2026-11-12T14:39:51.0636510Z [36;1m  # Try to run 'ls' in the default distribution[0m
+2026-11-12T14:39:51.0636834Z [36;1m  # This will fail if no distribution is registered[0m
+2026-11-12T14:39:51.0637116Z [36;1m  try {[0m
+2026-11-12T14:39:51.0637301Z [36;1m    $wslOut = & wsl.exe -e ls /[0m
+2026-11-12T14:39:51.0637560Z [36;1m    Write-Host "WSL Execution Success:"[0m
+2026-11-12T14:39:51.0637820Z [36;1m    Write-Host $wslOut[0m
+2026-11-12T14:39:51.0638610Z [36;1m  } catch {[0m
+2026-11-12T14:39:51.0639054Z [36;1m    Write-Warning "WSL Execution Failed. This usually means no Linux distribution is registered or WSL is disabled."[0m
+2026-11-12T14:39:51.0639540Z [36;1m  }[0m
+2026-11-12T14:39:51.0639694Z [36;1m}[0m
+2026-11-12T14:39:51.0708613Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-12T14:39:51.0708991Z ##[endgroup]
+2026-11-12T14:39:51.5354664Z --- WSL Binary Check ---
+2026-11-12T14:39:51.5945860Z T�h�e� �W�i�n�d�o�w�s� �S�u�b�s�y�s�t�e�m� �f�o�r� �L�i�n�u�x� �i�s� �n�o�t� �i�n�s�t�a�l�l�e�d�.� �Y�o�u� �c�a�n� �i�n�s�t�a�l�l� �b�y� �r�u�n�n�i�n�g� �'�w�s�l�.�e�x�e� �-�-�i�n�s�t�a�l�l�'�.�
+2026-11-12T14:39:51.5946693Z �
+2026-11-12T14:39:51.5948453Z �
+2026-11-12T14:39:51.5949105Z �F�o�r� �m�o�r�e� �i�n�f�o�r�m�a�t�i�o�n� �p�l�e�a�s�e� �v�i�s�i�t� �h�t�t�p�s�:�/�/�a�k�a�.�m�s�/�w�s�l�i�n�s�t�a�l�l�
+2026-11-12T14:39:51.5949709Z �
+2026-11-12T14:39:51.5950040Z �
+2026-11-12T14:39:51.5983166Z 
+2026-11-12T14:39:51.5990604Z --- Registered Distributions ---
+2026-11-12T14:39:51.6289543Z �T�h�e� �W�i�n�d�o�w�s� �S�u�b�s�y�s�t�e�m� �f�o�r� �L�i�n�u�x� �i�s� �n�o�t� �i�n�s�t�a�l�l�e�d�.� �Y�o�u� �c�a�n� �i�n�s�t�a�l�l� �b�y� �r�u�n�n�i�n�g� �'�w�s�l�.�e�x�e� �-�-�i�n�s�t�a�l�l�'�.�
+2026-11-12T14:39:51.6290323Z �
+2026-11-12T14:39:51.6290701Z �
+2026-11-12T14:39:51.6291094Z �F�o�r� �m�o�r�e� �i�n�f�o�r�m�a�t�i�o�n� �p�l�e�a�s�e� �v�i�s�i�t� �h�t�t�p�s�:�/�/�a�k�a�.�m�s�/�w�s�l�i�n�s�t�a�l�l�
+2026-11-12T14:39:51.6291477Z �
+2026-11-12T14:39:51.6291630Z �
+2026-11-12T14:39:51.6321150Z 
+2026-11-12T14:39:51.6327867Z --- Virtualization Feature Check ---
+2026-11-12T14:39:51.9158705Z Could not retrieve Device Guard status via standard CIM.
+2026-11-12T14:39:51.9162984Z Checking Windows Features...
+2026-11-12T14:40:02.3398513Z 
+2026-11-12T14:40:02.4115740Z [32;1mFeatureName                      [0m[32;1m   State[0m
+2026-11-12T14:40:02.4120876Z [32;1m-----------                      [0m [32;1m  -----[0m
+2026-11-12T14:40:02.4122498Z VirtualMachinePlatform            Enabled
+2026-11-12T14:40:02.4122791Z Microsoft-Windows-Subsystem-Linux Enabled
+2026-11-12T14:40:02.4123372Z 
+2026-11-12T14:40:02.4123576Z 
+2026-11-12T14:40:02.4130796Z --- Test Execution (Attempting to run a command in WSL) ---
+2026-11-12T14:40:02.4459754Z �T�h�e� �W�i�n�d�o�w�s� �S�u�b�s�y�s�t�e�m� �f�o�r� �L�i�n�u�x� �i�s� �n�o�t� �i�n�s�t�a�l�l�e�d�.� �Y�o�u� �c�a�n� �i�n�s�t�a�l�l� �b�y� �r�u�n�n�i�n�g� �'�w�s�l�.�e�x�e� �-�-�i�n�s�t�a�l�l�'�.�
+2026-11-12T14:40:02.4461024Z �
+2026-11-12T14:40:02.4462392Z �
+2026-11-12T14:40:02.4463420Z �F�o�r� �m�o�r�e� �i�n�f�o�r�m�a�t�i�o�n� �p�l�e�a�s�e� �v�i�s�i�t� �h�t�t�p�s�:�/�/�a�k�a�.�m�s�/�w�s�l�i�n�s�t�a�l�l�
+2026-11-12T14:40:02.4464412Z �
+2026-11-12T14:40:02.4465086Z �
+2026-11-12T14:40:02.4497543Z WSL Execution Success:
+2026-11-12T14:40:02.4500262Z 
+2026-11-12T14:40:02.5295877Z �
+2026-11-12T14:40:02.5724721Z ##[error]Process completed with exit code 1.
+2026-11-12T14:40:02.7325919Z Post job cleanup.
+2026-11-12T14:40:03.0605703Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-12T14:40:03.1169604Z git version 2.56.0.windows.4
+2026-11-12T14:40:03.1732425Z Temporarily overriding HOME='C:\a\_temp\fd887293-1df4-45fd-a8fe-34055add078b' before making global git config changes
+2026-11-12T14:40:03.1733642Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-12T14:40:03.1743007Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-12T14:40:03.2738772Z Removing SSH command configuration
+2026-11-12T14:40:03.2750888Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-12T14:40:03.3343463Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-12T14:40:04.7101139Z Removing HTTP extra header
+2026-11-12T14:40:04.7101674Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-12T14:40:04.7680895Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-12T14:40:06.1539709Z Removing includeIf entries pointing to credentials config files
+2026-11-12T14:40:06.1552366Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-12T14:40:06.2099518Z includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path
+2026-11-12T14:40:06.2100140Z includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path
+2026-11-12T14:40:06.2100631Z includeif.gitdir:/github/workspace/.git.path
+2026-11-12T14:40:06.2101550Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-12T14:40:06.2160100Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path
+2026-11-12T14:40:06.2666593Z C:\a\_temp\git-credentials-bbd440ec-28e9-4223-823d-6a9dd5ddc4db.config
+2026-11-12T14:40:06.2729589Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path C\:\\a\\_temp\\git\-credentials\-bbd440ec\-28e9\-4223\-823d\-6a9dd5ddc4db\.config
+2026-11-12T14:40:06.3322771Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path
+2026-11-12T14:40:06.3902174Z C:\a\_temp\git-credentials-bbd440ec-28e9-4223-823d-6a9dd5ddc4db.config
+2026-11-12T14:40:06.3963292Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path C\:\\a\\_temp\\git\-credentials\-bbd440ec\-28e9\-4223\-823d\-6a9dd5ddc4db\.config
+2026-11-12T14:40:06.4573642Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-12T14:40:06.5065898Z /github/runner_temp/git-credentials-bbd440ec-28e9-4223-823d-6a9dd5ddc4db.config
+2026-11-12T14:40:06.5126136Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-bbd440ec\-28e9\-4223\-823d\-6a9dd5ddc4db\.config
+2026-11-12T14:40:06.5701627Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-12T14:40:06.6211584Z /github/runner_temp/git-credentials-bbd440ec-28e9-4223-823d-6a9dd5ddc4db.config
+2026-11-12T14:40:06.6275067Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-bbd440ec\-28e9\-4223\-823d\-6a9dd5ddc4db\.config
+2026-11-12T14:40:06.6836122Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-12T14:40:07.9715255Z Removing credentials config 'C:\a\_temp\git-credentials-bbd440ec-28e9-4223-823d-6a9dd5ddc4db.config'
+2026-11-12T14:40:07.9958450Z Cleaning up orphan processes
+2026-11-12T14:40:08.0100570Z Terminate orphan process: pid (7060) (wsl)
+2026-11-12T14:40:08.0146017Z Terminate orphan process: pid (3004) (conhost)
+
