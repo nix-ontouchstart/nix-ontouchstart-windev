@@ -9,23 +9,22 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: .NET SDK & Runtime Inventory
+      - name: .NET & Visual Studio Toolchain Discovery
         shell: pwsh
         run: |
           Write-Host "--- .NET SDKs ---"
           dotnet --list-sdks
           Write-Host "--- .NET Runtimes ---"
           dotnet --list-runtimes
+          Write-Host ""
 
-      - name: Locate Visual Studio & Build Tools
-        shell: pwsh
-        run: |
           Write-Host "--- Finding Visual Studio Installation ---"
           # Use vswhere to find the latest Enterprise installation
-          $vsPath = & "vswhere.exe" -latest -property installationPath
+          # We force the result to a string to ensure it's not an object/array
+          $vsPath = (& "vswhere.exe" -latest -property installationPath).ToString()
           Write-Host "Visual Studio Path: $vsPath"
 
-          if (-not $vsPath) {
+          if ([string]::IsNullOrWhiteSpace($vsPath)) {
             Write-Error "Visual Studio installation not found via vswhere."
             exit 1
           }
@@ -39,7 +38,6 @@ jobs:
           }
 
           Write-Host "--- Checking for vsdevelop (if available) ---"
-          # Search for vsdevelop in the VS installation directory
           $vsDevelop = Get-ChildItem -Path $vsPath -Filter "vsdevelop.exe" -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1
           if ($vsDevelop) {
             Write-Host "Found vsdevelop at: $($vsDevelop.FullName)"
@@ -48,19 +46,24 @@ jobs:
             Write-Host "vsdevelop.exe not found in VS installation path."
           }
 
-      - name: Check Specific Workloads
-        shell: pwsh
-        run: |
+          Write-Host ""
           Write-Host "--- Checking for specific workloads ---"
-          # We use vswhere to list installed components/workloads
           $workloads = @("maui.windows", "netcore.sdk", "android", "web")
+          
+          # Verify VS Base Directory is accessible
+          $common7 = Join-Path $vsPath "Common7"
+          if (Test-Path $common7) {
+            Write-Host "VS Base Directory ($common7) is accessible."
+          } else {
+            Write-Warning "VS Base Directory is not accessible."
+          }
+
+          # Check for SDKs as a proxy for workloads
           foreach ($w in $workloads) {
-            $check = & "vswhere.exe" -latest -property installationPath | Select-String -Pattern $w
-            # Note: vswhere -property installationPath doesn't show workloads. 
-            # For true workload checking, we'd usually check the registry or specific VS folders, 
-            # but let's see if we can find them in the VS path strings.
-            Write-Host "Checking for $w..."
-            if (Test-Path (Join-Path (Join-Path (Get-Item $vsPath).FullName "Common7") "IDE") -PathType Container) {
-                Write-Host "VS Base Directory accessible."
+            Write-Host "Checking for $w SDK..."
+            if (dotnet --list-sdks | Select-String -Pattern $w) {
+              Write-Host "  [FOUND] $w SDK is installed."
+            } else {
+              Write-Host "  [MISSING] $w SDK was not found in dotnet --list-sdks"
             }
           }
