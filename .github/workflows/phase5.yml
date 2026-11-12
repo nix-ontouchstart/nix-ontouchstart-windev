@@ -1,0 +1,73 @@
+name: Phase 5 - Connectivity & Specialized Tools Discovery
+
+on:
+  workflow_call:
+
+jobs:
+  discovery:
+    runs-on: windows-11-vs2026-arm
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Connectivity & Specialized Tools Inventory
+        shell: pwsh
+        run: |
+          Write-Host "--- Cloud CLIs ---"
+          # Check for Azure, AWS, and GitHub CLIs
+          $cloudClis = @("az", "aws", "gh")
+          foreach ($cli in $cloudClis) {
+            if (Get-Command $cli -ErrorAction SilentlyContinue) {
+              Write-Host "Found $cli:"
+              & $cli --version
+            } else {
+              Write-Host "$cli CLI is not installed or not in PATH."
+            }
+          }
+
+          Write-Host ""
+          Write-Host "--- Database Tools ---"
+          # Check for MySQL and SQL Server Command Line Tools
+          $dbTools = @("mysql", "sqlcmd")
+          foreach ($tool in $dbTools) {
+            if (Get-Command $tool -ErrorAction SilentlyContinue) {
+              Write-Host "Found $tool:"
+              & $tool --version
+            } else {
+              Write-Host "$tool is not installed or not in PATH."
+            }
+          }
+
+          Write-Host ""
+          Write-Host "--- Web Server Discovery ---"
+          # Check for common installation paths for Apache and Nginx
+          $webPaths = @(
+            "C:\Apache24",
+            "C:\nginx",
+            "C:\Program Files\Apache",
+            "C:\Program Files\nginx",
+            "C:\inetpub"
+          )
+          
+          foreach ($path in $webPaths) {
+            if (Test-Path $path) {
+              Write-Host "Found Web Server/IIS Directory: $path"
+            }
+          }
+
+          Write-Host ""
+          Write-Host "--- Networking & Connectivity Check ---"
+          # Verify basic DNS resolution and connectivity
+          try {
+            $dns = [System.Net.Dns]::GetHostEntry("google.com")
+            Write-Host "DNS Resolution Success: $($dns.AddressList | Select-Object -ExpandProperty IPAddress -First 1)"
+          } catch {
+            Write-Warning "DNS Resolution Failed."
+          }
+
+          try {
+            $ping = Test-NetConnection -ComputerName google.com -Port 443 -ErrorAction Stop
+            Write-Host "Port 443 Connectivity: $($ping.PingSucceeded)"
+          } catch {
+            Write-Warning "Could not perform Test-NetConnection."
+          }
+

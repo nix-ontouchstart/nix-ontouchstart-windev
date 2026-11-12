@@ -14,3 +14,7 @@ jobs:
   phase4:
     needs: phase3
     uses: ./.github/workflows/phase4.yml
+
+  phase5:
+    needs: phase4
+    uses: ./.github/workflows/phase5.yml
