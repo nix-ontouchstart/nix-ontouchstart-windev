@@ -1,0 +1,255 @@
+2026-11-12T00:38:44.2486353Z Current runner version: '2.338.2'
+2026-11-12T00:38:44.2682462Z ##[group]Runner Image Provisioner
+2026-11-12T00:38:44.2683464Z Hosted Compute Agent
+2026-11-12T00:38:44.2684024Z Version: 20261028.624
+2026-11-12T00:38:44.2684614Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-12T00:38:44.2685381Z Build Date: 2026-10-28T21:51:42Z
+2026-11-12T00:38:44.2685985Z Worker ID: {27453937-96a9-4b61-8e0a-8ba79ccb36bb}
+2026-11-12T00:38:44.2686670Z Region: eastus2
+2026-11-12T00:38:44.2687164Z Cloud: Azure
+2026-11-12T00:38:44.2687656Z ##[endgroup]
+2026-11-12T00:38:44.2689192Z ##[group]Operating System
+2026-11-12T00:38:44.2689824Z Microsoft Windows 11
+2026-11-12T00:38:44.2690390Z 10.0.26200
+2026-11-12T00:38:44.2690905Z Enterprise
+2026-11-12T00:38:44.2691396Z ##[endgroup]
+2026-11-12T00:38:44.2691961Z ##[group]Runner Image
+2026-11-12T00:38:44.2692509Z Image: windows-11-vs2026-arm64
+2026-11-12T00:38:44.2693097Z Version: 20261101.203.1
+2026-11-12T00:38:44.2694757Z Included Software: https://github.com/actions/runner-images/blob/win11-vs2026-arm64/20261101.203/images/windows/Windows11-VS2026-Arm64-Readme.md
+2026-11-12T00:38:44.2696506Z Image Release: https://github.com/actions/runner-images/releases/tag/win11-vs2026-arm64%2F20261101.203
+2026-11-12T00:38:44.2697510Z ##[endgroup]
+2026-11-12T00:38:44.2698765Z ##[group]GITHUB_TOKEN Permissions
+2026-11-12T00:38:44.2701256Z Contents: read
+2026-11-12T00:38:44.2701973Z Metadata: read
+2026-11-12T00:38:44.2702549Z Packages: read
+2026-11-12T00:38:44.2703029Z ##[endgroup]
+2026-11-12T00:38:44.2705520Z Secret source: Actions
+2026-11-12T00:38:44.2706411Z Cache mode: write
+2026-11-12T00:38:44.2707297Z Prepare workflow directory
+2026-11-12T00:38:44.3675050Z Prepare all required actions
+2026-11-12T00:38:44.3728686Z Getting action download info
+2026-11-12T00:38:44.5593413Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-12T00:38:45.3129079Z Uses: nix-ontouchstart/nix-ontouchstart-windev/.github/workflows/phase3.yml@refs/heads/main (718fca9b0d6d4b88b5945dcc32d3e532d0f399ea)
+2026-11-12T00:38:45.3135447Z Complete job name: phase3 / discovery
+2026-11-12T00:38:45.9124121Z ##[group]Run actions/checkout@v7
+2026-11-12T00:38:45.9125830Z with:
+2026-11-12T00:38:45.9126618Z   repository: nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T00:38:45.9131342Z   token: ***
+2026-11-12T00:38:45.9132005Z   ssh-strict: true
+2026-11-12T00:38:45.9132572Z   ssh-user: git
+2026-11-12T00:38:45.9133233Z   persist-credentials: true
+2026-11-12T00:38:45.9133870Z   clean: true
+2026-11-12T00:38:45.9135003Z   sparse-checkout-cone-mode: true
+2026-11-12T00:38:45.9135838Z   fetch-depth: 1
+2026-11-12T00:38:45.9136439Z   fetch-tags: false
+2026-11-12T00:38:45.9137092Z   show-progress: true
+2026-11-12T00:38:45.9137779Z   lfs: false
+2026-11-12T00:38:45.9138371Z   submodules: false
+2026-11-12T00:38:45.9139031Z   set-safe-directory: true
+2026-11-12T00:38:45.9139685Z   allow-unsafe-pr-checkout: false
+2026-11-12T00:38:45.9141177Z ##[endgroup]
+2026-11-12T00:38:46.7197438Z Syncing repository: nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T00:38:46.7200362Z ##[group]Getting Git version info
+2026-11-12T00:38:46.7201423Z Working directory is 'C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev'
+2026-11-12T00:38:46.8269840Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-12T00:38:47.2145337Z git version 2.56.0.windows.4
+2026-11-12T00:38:47.2212870Z ##[endgroup]
+2026-11-12T00:38:47.2262692Z Temporarily overriding HOME='C:\a\_temp\9d99f48b-846b-4cbe-8565-f694fd792f91' before making global git config changes
+2026-11-12T00:38:47.2265395Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-12T00:38:47.2268141Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-12T00:38:47.3016886Z Deleting the contents of 'C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev'
+2026-11-12T00:38:47.3025958Z ##[group]Determining repository object format
+2026-11-12T00:38:47.3101826Z ##[endgroup]
+2026-11-12T00:38:47.3104389Z ##[group]Initializing the repository
+2026-11-12T00:38:47.3106311Z [command]"C:\Program Files\Git\bin\git.exe" init C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-12T00:38:47.4726375Z Initialized empty Git repository in C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/
+2026-11-12T00:38:47.4792522Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T00:38:47.5468177Z ##[endgroup]
+2026-11-12T00:38:47.5470009Z ##[group]Disabling automatic garbage collection
+2026-11-12T00:38:47.5471588Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-12T00:38:47.6010184Z ##[endgroup]
+2026-11-12T00:38:47.6011867Z ##[group]Setting up auth
+2026-11-12T00:38:47.6013085Z Removing SSH command configuration
+2026-11-12T00:38:47.6022682Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-12T00:38:47.6565077Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-12T00:38:51.0327224Z Removing HTTP extra header
+2026-11-12T00:38:51.0338064Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-12T00:38:51.0935979Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-12T00:38:52.4189640Z Removing includeIf entries pointing to credentials config files
+2026-11-12T00:38:52.4200310Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-12T00:38:52.4756111Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-12T00:38:53.7419960Z [command]"C:\Program Files\Git\bin\git.exe" config --file C:\a\_temp\git-credentials-8b0cf2e1-70a0-46eb-aa0d-d8af878ae45b.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-12T00:38:53.7982680Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path C:\a\_temp\git-credentials-8b0cf2e1-70a0-46eb-aa0d-d8af878ae45b.config
+2026-11-12T00:38:53.8519904Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path C:\a\_temp\git-credentials-8b0cf2e1-70a0-46eb-aa0d-d8af878ae45b.config
+2026-11-12T00:38:53.9100445Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-8b0cf2e1-70a0-46eb-aa0d-d8af878ae45b.config
+2026-11-12T00:38:53.9663710Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-8b0cf2e1-70a0-46eb-aa0d-d8af878ae45b.config
+2026-11-12T00:38:54.0207549Z ##[endgroup]
+2026-11-12T00:38:54.0208128Z ##[group]Fetching the repository
+2026-11-12T00:38:54.0220352Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +718fca9b0d6d4b88b5945dcc32d3e532d0f399ea:refs/remotes/origin/main
+2026-11-12T00:38:54.8823229Z From https://github.com/nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T00:38:54.8824719Z  * [new ref]         718fca9b0d6d4b88b5945dcc32d3e532d0f399ea -> origin/main
+2026-11-12T00:38:54.8891003Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/main
+2026-11-12T00:38:54.9427904Z   origin/main
+2026-11-12T00:38:54.9487273Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/main
+2026-11-12T00:38:54.9998389Z 718fca9b0d6d4b88b5945dcc32d3e532d0f399ea
+2026-11-12T00:38:55.0049426Z ##[endgroup]
+2026-11-12T00:38:55.0050411Z ##[group]Determining the checkout info
+2026-11-12T00:38:55.0051016Z ##[endgroup]
+2026-11-12T00:38:55.0059559Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-12T00:38:55.1042596Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-12T00:38:55.1584583Z ##[group]Checking out the ref
+2026-11-12T00:38:55.1594836Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-11-12T00:38:55.2486216Z Switched to a new branch 'main'
+2026-11-12T00:38:55.2600563Z branch 'main' set up to track 'origin/main'.
+2026-11-12T00:38:55.2663271Z ##[endgroup]
+2026-11-12T00:38:55.3281733Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-12T00:38:55.3772174Z 718fca9b0d6d4b88b5945dcc32d3e532d0f399ea
+2026-11-12T00:38:55.4331747Z ##[group]Run Write-Host "--- .NET SDKs ---"
+2026-11-12T00:38:55.4332569Z [36;1mWrite-Host "--- .NET SDKs ---"[0m
+2026-11-12T00:38:55.4332952Z [36;1mdotnet --list-sdks[0m
+2026-11-12T00:38:55.4333279Z [36;1mWrite-Host "--- .NET Runtimes ---"[0m
+2026-11-12T00:38:55.4333624Z [36;1mdotnet --list-runtimes[0m
+2026-11-12T00:38:55.4333914Z [36;1mWrite-Host ""[0m
+2026-11-12T00:38:55.4334152Z [36;1m[0m
+2026-11-12T00:38:55.4334441Z [36;1mWrite-Host "--- Finding Visual Studio Installation ---"[0m
+2026-11-12T00:38:55.4334914Z [36;1m# Use vswhere to find the latest Enterprise installation[0m
+2026-11-12T00:38:55.4335376Z [36;1m# We force the result to a string to ensure it's not an object/array[0m
+2026-11-12T00:38:55.4335957Z [36;1m$vsPath = (& "vswhere.exe" -latest -property installationPath).ToString()[0m
+2026-11-12T00:38:55.4336429Z [36;1mWrite-Host "Visual Studio Path: $vsPath"[0m
+2026-11-12T00:38:55.4336735Z [36;1m[0m
+2026-11-12T00:38:55.4337171Z [36;1mif ([string]::IsNullOrWhiteSpace($vsPath)) {[0m
+2026-11-12T00:38:55.4337590Z [36;1m  Write-Error "Visual Studio installation not found via vswhere."[0m
+2026-11-12T00:38:55.4338005Z [36;1m  exit 1[0m
+2026-11-12T00:38:55.4338220Z [36;1m}[0m
+2026-11-12T00:38:55.4338420Z [36;1m[0m
+2026-11-12T00:38:55.4338664Z [36;1mWrite-Host "--- Checking MSBuild ---"[0m
+2026-11-12T00:38:55.4339147Z [36;1m$msbuildPath = Join-Path $vsPath "MSBuild\Current\Bin\MSBuild.exe"[0m
+2026-11-12T00:38:55.4339648Z [36;1mif (Test-Path $msbuildPath) {[0m
+2026-11-12T00:38:55.4339941Z [36;1m  & $msbuildPath -version[0m
+2026-11-12T00:38:55.4340213Z [36;1m} else {[0m
+2026-11-12T00:38:55.4340511Z [36;1m  Write-Warning "MSBuild not found at $msbuildPath"[0m
+2026-11-12T00:38:55.4340846Z [36;1m}[0m
+2026-11-12T00:38:55.4341072Z [36;1m[0m
+2026-11-12T00:38:55.4341374Z [36;1mWrite-Host "--- Checking for vsdevelop (if available) ---"[0m
+2026-11-12T00:38:55.4342112Z [36;1m$vsDevelop = Get-ChildItem -Path $vsPath -Filter "vsdevelop.exe" -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1[0m
+2026-11-12T00:38:55.4342784Z [36;1mif ($vsDevelop) {[0m
+2026-11-12T00:38:55.4343136Z [36;1m  Write-Host "Found vsdevelop at: $($vsDevelop.FullName)"[0m
+2026-11-12T00:38:55.4343662Z [36;1m  & $vsDevelop.FullName --version[0m
+2026-11-12T00:38:55.4344060Z [36;1m} else {[0m
+2026-11-12T00:38:55.4344375Z [36;1m  Write-Host "vsdevelop.exe not found in VS installation path."[0m
+2026-11-12T00:38:55.4344766Z [36;1m}[0m
+2026-11-12T00:38:55.4344985Z [36;1m[0m
+2026-11-12T00:38:55.4345228Z [36;1mWrite-Host ""[0m
+2026-11-12T00:38:55.4345540Z [36;1mWrite-Host "--- Checking for specific workloads ---"[0m
+2026-11-12T00:38:55.4345966Z [36;1m$workloads = @("maui.windows", "netcore.sdk", "android", "web")[0m
+2026-11-12T00:38:55.4346346Z [36;1m[0m
+2026-11-12T00:38:55.4346590Z [36;1m# Verify VS Base Directory is accessible[0m
+2026-11-12T00:38:55.4346934Z [36;1m$common7 = Join-Path $vsPath "Common7"[0m
+2026-11-12T00:38:55.4347742Z [36;1mif (Test-Path $common7) {[0m
+2026-11-12T00:38:55.4348096Z [36;1m  Write-Host "VS Base Directory ($common7) is accessible."[0m
+2026-11-12T00:38:55.4348510Z [36;1m} else {[0m
+2026-11-12T00:38:55.4348805Z [36;1m  Write-Warning "VS Base Directory is not accessible."[0m
+2026-11-12T00:38:55.4349391Z [36;1m}[0m
+2026-11-12T00:38:55.4349614Z [36;1m[0m
+2026-11-12T00:38:55.4349892Z [36;1m# Check for SDKs as a proxy for workloads[0m
+2026-11-12T00:38:55.4350228Z [36;1mforeach ($w in $workloads) {[0m
+2026-11-12T00:38:55.4350532Z [36;1m  Write-Host "Checking for $w SDK..."[0m
+2026-11-12T00:38:55.4350902Z [36;1m  if (dotnet --list-sdks | Select-String -Pattern $w) {[0m
+2026-11-12T00:38:55.4351334Z [36;1m    Write-Host "  [FOUND] $w SDK is installed."[0m
+2026-11-12T00:38:55.4351652Z [36;1m  } else {[0m
+2026-11-12T00:38:55.4352001Z [36;1m    Write-Host "  [MISSING] $w SDK was not found in dotnet --list-sdks"[0m
+2026-11-12T00:38:55.4352443Z [36;1m  }[0m
+2026-11-12T00:38:55.4354672Z [36;1m}[0m
+2026-11-12T00:38:55.4426781Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-12T00:38:55.4427254Z ##[endgroup]
+2026-11-12T00:38:55.8678434Z --- .NET SDKs ---
+2026-11-12T00:38:56.0787093Z 8.0.133 [C:\Program Files\dotnet\sdk]
+2026-11-12T00:38:56.0787502Z 8.0.206 [C:\Program Files\dotnet\sdk]
+2026-11-12T00:38:56.0787917Z 8.0.319 [C:\Program Files\dotnet\sdk]
+2026-11-12T00:38:56.0788215Z 8.0.427 [C:\Program Files\dotnet\sdk]
+2026-11-12T00:38:56.0788516Z 9.0.123 [C:\Program Files\dotnet\sdk]
+2026-11-12T00:38:56.0788817Z 9.0.205 [C:\Program Files\dotnet\sdk]
+2026-11-12T00:38:56.0789098Z 9.0.320 [C:\Program Files\dotnet\sdk]
+2026-11-12T00:38:56.0789387Z 10.0.114 [C:\Program Files\dotnet\sdk]
+2026-11-12T00:38:56.0789678Z 10.0.204 [C:\Program Files\dotnet\sdk]
+2026-11-12T00:38:56.0789968Z 10.0.303 [C:\Program Files\dotnet\sdk]
+2026-11-12T00:38:56.0790263Z 10.0.403 [C:\Program Files\dotnet\sdk]
+2026-11-12T00:38:56.0817800Z --- .NET Runtimes ---
+2026-11-12T00:38:56.4497913Z Microsoft.AspNetCore.App 8.0.6 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+2026-11-12T00:38:56.4499172Z Microsoft.AspNetCore.App 8.0.22 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+2026-11-12T00:38:56.4499803Z Microsoft.AspNetCore.App 8.0.33 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+2026-11-12T00:38:56.4500403Z Microsoft.AspNetCore.App 9.0.6 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+2026-11-12T00:38:56.4501026Z Microsoft.AspNetCore.App 9.0.22 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+2026-11-12T00:38:56.4501666Z Microsoft.AspNetCore.App 10.0.8 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+2026-11-12T00:38:56.4502309Z Microsoft.AspNetCore.App 10.0.11 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+2026-11-12T00:38:56.4502907Z Microsoft.AspNetCore.App 10.0.14 [C:\Program Files\dotnet\shared\Microsoft.AspNetCore.App]
+2026-11-12T00:38:56.4503528Z Microsoft.NETCore.App 8.0.6 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+2026-11-12T00:38:56.4504100Z Microsoft.NETCore.App 8.0.22 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+2026-11-12T00:38:56.4504649Z Microsoft.NETCore.App 8.0.33 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+2026-11-12T00:38:56.4505195Z Microsoft.NETCore.App 9.0.6 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+2026-11-12T00:38:56.4506674Z Microsoft.NETCore.App 9.0.22 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+2026-11-12T00:38:56.4507898Z Microsoft.NETCore.App 10.0.8 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+2026-11-12T00:38:56.4508619Z Microsoft.NETCore.App 10.0.11 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+2026-11-12T00:38:56.4509205Z Microsoft.NETCore.App 10.0.14 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]
+2026-11-12T00:38:56.4509855Z Microsoft.WindowsDesktop.App 8.0.6 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+2026-11-12T00:38:56.4511002Z Microsoft.WindowsDesktop.App 8.0.22 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+2026-11-12T00:38:56.4511673Z Microsoft.WindowsDesktop.App 8.0.33 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+2026-11-12T00:38:56.4512490Z Microsoft.WindowsDesktop.App 9.0.6 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+2026-11-12T00:38:56.4513206Z Microsoft.WindowsDesktop.App 9.0.22 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+2026-11-12T00:38:56.4513881Z Microsoft.WindowsDesktop.App 10.0.8 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+2026-11-12T00:38:56.4514562Z Microsoft.WindowsDesktop.App 10.0.11 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+2026-11-12T00:38:56.4515229Z Microsoft.WindowsDesktop.App 10.0.14 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]
+2026-11-12T00:38:56.4525589Z 
+2026-11-12T00:38:56.4534180Z --- Finding Visual Studio Installation ---
+2026-11-12T00:38:59.4408813Z Visual Studio Path: C:\Program Files\Microsoft Visual Studio\18\Enterprise
+2026-11-12T00:38:59.4444765Z --- Checking MSBuild ---
+2026-11-12T00:39:04.5170357Z MSBuild version 18.11.1-1.26513.3+940033be3 for .NET Framework
+2026-11-12T00:39:04.5216008Z 18.11.1.51303
+2026-11-12T00:39:04.5691707Z --- Checking for vsdevelop (if available) ---
+2026-11-12T00:39:51.0211655Z vsdevelop.exe not found in VS installation path.
+2026-11-12T00:39:51.0215229Z 
+2026-11-12T00:39:51.0220351Z --- Checking for specific workloads ---
+2026-11-12T00:39:51.0253123Z VS Base Directory (C:\Program Files\Microsoft Visual Studio\18\Enterprise\Common7) is accessible.
+2026-11-12T00:39:51.0262181Z Checking for maui.windows SDK...
+2026-11-12T00:39:51.0438384Z   [MISSING] maui.windows SDK was not found in dotnet --list-sdks
+2026-11-12T00:39:51.0443879Z Checking for netcore.sdk SDK...
+2026-11-12T00:39:51.0582892Z   [MISSING] netcore.sdk SDK was not found in dotnet --list-sdks
+2026-11-12T00:39:51.0587268Z Checking for android SDK...
+2026-11-12T00:39:51.0721089Z   [MISSING] android SDK was not found in dotnet --list-sdks
+2026-11-12T00:39:51.0726339Z Checking for web SDK...
+2026-11-12T00:39:51.0859513Z   [MISSING] web SDK was not found in dotnet --list-sdks
+2026-11-12T00:39:51.1558008Z Post job cleanup.
+2026-11-12T00:39:51.4751468Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-12T00:39:51.5253543Z git version 2.56.0.windows.4
+2026-11-12T00:39:51.5350337Z Temporarily overriding HOME='C:\a\_temp\afeaf2ff-119a-4f11-9400-78c03214fae9' before making global git config changes
+2026-11-12T00:39:51.5351085Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-12T00:39:51.5360169Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-12T00:39:51.5910735Z Removing SSH command configuration
+2026-11-12T00:39:51.5923372Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-12T00:39:51.6479650Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-12T00:39:52.9689170Z Removing HTTP extra header
+2026-11-12T00:39:52.9699011Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-12T00:39:53.0424038Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-12T00:39:54.3034538Z Removing includeIf entries pointing to credentials config files
+2026-11-12T00:39:54.3046965Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-12T00:39:54.3522647Z includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path
+2026-11-12T00:39:54.3525771Z includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path
+2026-11-12T00:39:54.3526346Z includeif.gitdir:/github/workspace/.git.path
+2026-11-12T00:39:54.3526800Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-12T00:39:54.3582594Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path
+2026-11-12T00:39:54.4060213Z C:\a\_temp\git-credentials-8b0cf2e1-70a0-46eb-aa0d-d8af878ae45b.config
+2026-11-12T00:39:54.4125207Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path C\:\\a\\_temp\\git\-credentials\-8b0cf2e1\-70a0\-46eb\-aa0d\-d8af878ae45b\.config
+2026-11-12T00:39:54.4691915Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path
+2026-11-12T00:39:54.5204796Z C:\a\_temp\git-credentials-8b0cf2e1-70a0-46eb-aa0d-d8af878ae45b.config
+2026-11-12T00:39:54.5268792Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path C\:\\a\\_temp\\git\-credentials\-8b0cf2e1\-70a0\-46eb\-aa0d\-d8af878ae45b\.config
+2026-11-12T00:39:54.5876859Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-12T00:39:54.6353153Z /github/runner_temp/git-credentials-8b0cf2e1-70a0-46eb-aa0d-d8af878ae45b.config
+2026-11-12T00:39:54.6411577Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-8b0cf2e1\-70a0\-46eb\-aa0d\-d8af878ae45b\.config
+2026-11-12T00:39:54.6962651Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-12T00:39:54.7430760Z /github/runner_temp/git-credentials-8b0cf2e1-70a0-46eb-aa0d-d8af878ae45b.config
+2026-11-12T00:39:54.7491975Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-8b0cf2e1\-70a0\-46eb\-aa0d\-d8af878ae45b\.config
+2026-11-12T00:39:54.8031835Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-12T00:39:56.0878435Z Removing credentials config 'C:\a\_temp\git-credentials-8b0cf2e1-70a0-46eb-aa0d-d8af878ae45b.config'
+2026-11-12T00:39:56.1125845Z Cleaning up orphan processes
+

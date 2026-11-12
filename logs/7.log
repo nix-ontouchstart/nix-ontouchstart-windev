@@ -1,0 +1,251 @@
+2026-11-12T01:01:34.1320329Z Current runner version: '2.338.2'
+2026-11-12T01:01:34.1404984Z ##[group]Runner Image Provisioner
+2026-11-12T01:01:34.1405802Z Hosted Compute Agent
+2026-11-12T01:01:34.1406258Z Version: 20261028.624
+2026-11-12T01:01:34.1406756Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-12T01:01:34.1407337Z Build Date: 2026-10-28T21:51:42Z
+2026-11-12T01:01:34.1407884Z Worker ID: {2cb67647-841f-4ce5-8a0e-844cb3799abc}
+2026-11-12T01:01:34.1408457Z Region: northcentralus
+2026-11-12T01:01:34.1408912Z Cloud: Azure
+2026-11-12T01:01:34.1409324Z ##[endgroup]
+2026-11-12T01:01:34.1411040Z ##[group]Operating System
+2026-11-12T01:01:34.1411569Z Microsoft Windows 11
+2026-11-12T01:01:34.1412011Z 10.0.26200
+2026-11-12T01:01:34.1412418Z Enterprise
+2026-11-12T01:01:34.1412825Z ##[endgroup]
+2026-11-12T01:01:34.1413245Z ##[group]Runner Image
+2026-11-12T01:01:34.1413710Z Image: windows-11-vs2026-arm64
+2026-11-12T01:01:34.1414210Z Version: 20261101.203.1
+2026-11-12T01:01:34.1415893Z Included Software: https://github.com/actions/runner-images/blob/win11-vs2026-arm64/20261101.203/images/windows/Windows11-VS2026-Arm64-Readme.md
+2026-11-12T01:01:34.1417739Z Image Release: https://github.com/actions/runner-images/releases/tag/win11-vs2026-arm64%2F20261101.203
+2026-11-12T01:01:34.1418609Z ##[endgroup]
+2026-11-12T01:01:34.1419782Z ##[group]GITHUB_TOKEN Permissions
+2026-11-12T01:01:34.1422436Z Contents: read
+2026-11-12T01:01:34.1422914Z Metadata: read
+2026-11-12T01:01:34.1423346Z Packages: read
+2026-11-12T01:01:34.1423770Z ##[endgroup]
+2026-11-12T01:01:34.1426475Z Secret source: Actions
+2026-11-12T01:01:34.1427223Z Cache mode: write
+2026-11-12T01:01:34.1427876Z Prepare workflow directory
+2026-11-12T01:01:34.1890000Z Prepare all required actions
+2026-11-12T01:01:34.1944473Z Getting action download info
+2026-11-12T01:01:34.4085362Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-12T01:01:34.8743469Z Uses: nix-ontouchstart/nix-ontouchstart-windev/.github/workflows/phase4.yml@refs/heads/main (7029cb3c2896ac7035050fff13b5d688b4a409b2)
+2026-11-12T01:01:34.8748470Z Complete job name: phase4 / discovery
+2026-11-12T01:01:35.0689935Z ##[group]Run actions/checkout@v7
+2026-11-12T01:01:35.0691545Z with:
+2026-11-12T01:01:35.0707987Z   repository: nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T01:01:35.0712013Z   token: ***
+2026-11-12T01:01:35.0712415Z   ssh-strict: true
+2026-11-12T01:01:35.0712824Z   ssh-user: git
+2026-11-12T01:01:35.0713245Z   persist-credentials: true
+2026-11-12T01:01:35.0713699Z   clean: true
+2026-11-12T01:01:35.0714121Z   sparse-checkout-cone-mode: true
+2026-11-12T01:01:35.0714607Z   fetch-depth: 1
+2026-11-12T01:01:35.0715022Z   fetch-tags: false
+2026-11-12T01:01:35.0715437Z   show-progress: true
+2026-11-12T01:01:35.0715852Z   lfs: false
+2026-11-12T01:01:35.0716242Z   submodules: false
+2026-11-12T01:01:35.0716661Z   set-safe-directory: true
+2026-11-12T01:01:35.0717139Z   allow-unsafe-pr-checkout: false
+2026-11-12T01:01:35.0718356Z ##[endgroup]
+2026-11-12T01:01:35.3522453Z Syncing repository: nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T01:01:35.3525087Z ##[group]Getting Git version info
+2026-11-12T01:01:35.3525875Z Working directory is 'C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev'
+2026-11-12T01:01:35.4647422Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-12T01:01:35.8319442Z git version 2.56.0.windows.4
+2026-11-12T01:01:35.8387082Z ##[endgroup]
+2026-11-12T01:01:35.8429292Z Temporarily overriding HOME='C:\a\_temp\0052cce3-4e92-4dc4-90c5-1a9a9a99e8eb' before making global git config changes
+2026-11-12T01:01:35.8431666Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-12T01:01:35.8440991Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-12T01:01:35.9253998Z Deleting the contents of 'C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev'
+2026-11-12T01:01:35.9264197Z ##[group]Determining repository object format
+2026-11-12T01:01:35.9269555Z ##[endgroup]
+2026-11-12T01:01:35.9270858Z ##[group]Initializing the repository
+2026-11-12T01:01:35.9276593Z [command]"C:\Program Files\Git\bin\git.exe" init C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-12T01:01:36.0726005Z Initialized empty Git repository in C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/
+2026-11-12T01:01:36.0796448Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T01:01:36.1519896Z ##[endgroup]
+2026-11-12T01:01:36.1520601Z ##[group]Disabling automatic garbage collection
+2026-11-12T01:01:36.1530337Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-12T01:01:36.2096743Z ##[endgroup]
+2026-11-12T01:01:36.2097417Z ##[group]Setting up auth
+2026-11-12T01:01:36.2097989Z Removing SSH command configuration
+2026-11-12T01:01:36.2110521Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-12T01:01:36.2690419Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-12T01:01:38.6326607Z Removing HTTP extra header
+2026-11-12T01:01:38.6333031Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-12T01:01:38.6933715Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-12T01:01:40.0676805Z Removing includeIf entries pointing to credentials config files
+2026-11-12T01:01:40.0688756Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-12T01:01:40.1259865Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-12T01:01:41.4965380Z [command]"C:\Program Files\Git\bin\git.exe" config --file C:\a\_temp\git-credentials-771fcc83-120a-48e5-b8a4-333ac576a71e.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-12T01:01:41.5570090Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path C:\a\_temp\git-credentials-771fcc83-120a-48e5-b8a4-333ac576a71e.config
+2026-11-12T01:01:41.6151452Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path C:\a\_temp\git-credentials-771fcc83-120a-48e5-b8a4-333ac576a71e.config
+2026-11-12T01:01:41.6783350Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-771fcc83-120a-48e5-b8a4-333ac576a71e.config
+2026-11-12T01:01:41.7378232Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-771fcc83-120a-48e5-b8a4-333ac576a71e.config
+2026-11-12T01:01:41.7946414Z ##[endgroup]
+2026-11-12T01:01:41.7959390Z ##[group]Fetching the repository
+2026-11-12T01:01:41.7960608Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +7029cb3c2896ac7035050fff13b5d688b4a409b2:refs/remotes/origin/main
+2026-11-12T01:01:42.8165645Z From https://github.com/nix-ontouchstart/nix-ontouchstart-windev
+2026-11-12T01:01:42.8166315Z  * [new ref]         7029cb3c2896ac7035050fff13b5d688b4a409b2 -> origin/main
+2026-11-12T01:01:42.8242706Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/main
+2026-11-12T01:01:42.8810680Z   origin/main
+2026-11-12T01:01:42.8875810Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/main
+2026-11-12T01:01:42.9433487Z 7029cb3c2896ac7035050fff13b5d688b4a409b2
+2026-11-12T01:01:42.9486340Z ##[endgroup]
+2026-11-12T01:01:42.9486723Z ##[group]Determining the checkout info
+2026-11-12T01:01:42.9487242Z ##[endgroup]
+2026-11-12T01:01:42.9498113Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-12T01:01:43.0276043Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-12T01:01:43.0854396Z ##[group]Checking out the ref
+2026-11-12T01:01:43.0864585Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-11-12T01:01:43.1831905Z Switched to a new branch 'main'
+2026-11-12T01:01:43.1959483Z branch 'main' set up to track 'origin/main'.
+2026-11-12T01:01:43.2025397Z ##[endgroup]
+2026-11-12T01:01:43.2693139Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-12T01:01:43.3211521Z 7029cb3c2896ac7035050fff13b5d688b4a409b2
+2026-11-12T01:01:43.3839990Z ##[group]Run Write-Host "--- Compilers ---"
+2026-11-12T01:01:43.3840649Z [36;1mWrite-Host "--- Compilers ---"[0m
+2026-11-12T01:01:43.3840900Z [36;1m# Check MSVC (cl.exe)[0m
+2026-11-12T01:01:43.3841318Z [36;1m# Note: cl.exe is often only in PATH if the Developer Command Prompt is initialized[0m
+2026-11-12T01:01:43.3841808Z [36;1mif (Get-Command cl.exe -ErrorAction SilentlyContinue) {[0m
+2026-11-12T01:01:43.3842378Z [36;1m  & cl.exe[0m
+2026-11-12T01:01:43.3842614Z [36;1m} else {[0m
+2026-11-12T01:01:43.3843023Z [36;1m  Write-Warning "cl.exe (MSVC) not found in PATH. It may require a Developer Command Prompt environment."[0m
+2026-11-12T01:01:43.3843511Z [36;1m}[0m
+2026-11-12T01:01:43.3843665Z [36;1m[0m
+2026-11-12T01:01:43.3843828Z [36;1m# Check GCC / Clang / LLVM[0m
+2026-11-12T01:01:43.3844135Z [36;1mforeach ($compiler in @("gcc", "clang", "g++", "clang++")) {[0m
+2026-11-12T01:01:43.3844640Z [36;1m  if (Get-Command $compiler -ErrorAction SilentlyContinue) {[0m
+2026-11-12T01:01:43.3844991Z [36;1m    & $compiler --version[0m
+2026-11-12T01:01:43.3845207Z [36;1m  } else {[0m
+2026-11-12T01:01:43.3845410Z [36;1m    Write-Host "$compiler not found."[0m
+2026-11-12T01:01:43.3845654Z [36;1m  }[0m
+2026-11-12T01:01:43.3845808Z [36;1m}[0m
+2026-11-12T01:01:43.3845957Z [36;1m[0m
+2026-11-12T01:01:43.3846115Z [36;1mWrite-Host ""[0m
+2026-11-12T01:01:43.3846344Z [36;1mWrite-Host "--- Build Systems ---"[0m
+2026-11-12T01:01:43.3846675Z [36;1mforeach ($buildTool in @("cmake", "ninja", "bazel", "make")) {[0m
+2026-11-12T01:01:43.3847085Z [36;1m  if (Get-Command $buildTool -ErrorAction SilentlyContinue) {[0m
+2026-11-12T01:01:43.3847425Z [36;1m    & $buildTool --version[0m
+2026-11-12T01:01:43.3847644Z [36;1m  } else {[0m
+2026-11-12T01:01:43.3847852Z [36;1m    Write-Host "$buildTool not found."[0m
+2026-11-12T01:01:43.3848100Z [36;1m  }[0m
+2026-11-12T01:01:43.3848267Z [36;1m}[0m
+2026-11-12T01:01:43.3848442Z [36;1m[0m
+2026-11-12T01:01:43.3848615Z [36;1mWrite-Host ""[0m
+2026-11-12T01:01:43.3848837Z [36;1mWrite-Host "--- vcpkg Inventory ---"[0m
+2026-11-12T01:01:43.3849410Z [36;1mif (Get-Command vcpkg -ErrorAction SilentlyContinue) {[0m
+2026-11-12T01:01:43.3849788Z [36;1m  & vcpkg --version[0m
+2026-11-12T01:01:43.3849988Z [36;1m} else {[0m
+2026-11-12T01:01:43.3850218Z [36;1m  Write-Warning "vcpkg command not found in PATH."[0m
+2026-11-12T01:01:43.3850497Z [36;1m}[0m
+2026-11-12T01:01:43.3850648Z [36;1m[0m
+2026-11-12T01:01:43.3850863Z [36;1m$vcpkgRoot = $env:VCPKG_INSTALLATION_ROOT[0m
+2026-11-12T01:01:43.3851249Z [36;1mWrite-Host "VCPKG_INSTALLATION_ROOT Environment Variable: $vcpkgRoot"[0m
+2026-11-12T01:01:43.3851598Z [36;1m[0m
+2026-11-12T01:01:43.3851763Z [36;1mif (Test-Path "C:\vcpkg") {[0m
+2026-11-12T01:01:43.3852057Z [36;1m  Write-Host "Default vcpkg path (C:\vcpkg) exists."[0m
+2026-11-12T01:01:43.3852348Z [36;1m} else {[0m
+2026-11-12T01:01:43.3853275Z [36;1m  Write-Warning "Default vcpkg path (C:\vcpkg) does not exist."[0m
+2026-11-12T01:01:43.3853599Z [36;1m}[0m
+2026-11-12T01:01:43.3853762Z [36;1m[0m
+2026-11-12T01:01:43.3853931Z [36;1mWrite-Host ""[0m
+2026-11-12T01:01:43.3854183Z [36;1mWrite-Host "--- Shared Libraries (OpenSSL) ---"[0m
+2026-11-12T01:01:43.3854474Z [36;1m# Check for openssl binary[0m
+2026-11-12T01:01:43.3854778Z [36;1mif (Get-Command openssl -ErrorAction SilentlyContinue) {[0m
+2026-11-12T01:01:43.3855090Z [36;1m  & openssl version[0m
+2026-11-12T01:01:43.3855287Z [36;1m} else {[0m
+2026-11-12T01:01:43.3855603Z [36;1m  Write-Host "openssl command not found. Checking common installation paths..."[0m
+2026-11-12T01:01:43.3855988Z [36;1m  $commonPaths = @([0m
+2026-11-12T01:01:43.3856239Z [36;1m    "C:\Program Files\OpenSSL\bin\openssl.exe",[0m
+2026-11-12T01:01:43.3856535Z [36;1m    "C:\OpenSSL\bin\openssl.exe",[0m
+2026-11-12T01:01:43.3856800Z [36;1m    "C:\tools\openssl\bin\openssl.exe"[0m
+2026-11-12T01:01:43.3857056Z [36;1m  )[0m
+2026-11-12T01:01:43.3859377Z [36;1m  foreach ($path in $commonPaths) {[0m
+2026-11-12T01:01:43.3859778Z [36;1m    if (Test-Path $path) {[0m
+2026-11-12T01:01:43.3860040Z [36;1m      Write-Host "Found OpenSSL at: $path"[0m
+2026-11-12T01:01:43.3860293Z [36;1m    }[0m
+2026-11-12T01:01:43.3860451Z [36;1m  }[0m
+2026-11-12T01:01:43.3860604Z [36;1m}[0m
+2026-11-12T01:01:43.3947691Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-12T01:01:43.3948060Z ##[endgroup]
+2026-11-12T01:01:43.8724171Z --- Compilers ---
+2026-11-12T01:01:49.3796559Z [33;1mWARNING: cl.exe (MSVC) not found in PATH. It may require a Developer Command Prompt environment.[0m
+2026-11-12T01:01:49.6185390Z gcc.exe (x86_64-posix-seh-rev2, Built by MinGW-Builds project) 14.2.0
+2026-11-12T01:01:49.6186020Z Copyright (C) 2024 Free Software Foundation, Inc.
+2026-11-12T01:01:49.6186575Z This is free software; see the source for copying conditions.  There is NO
+2026-11-12T01:01:49.6187088Z warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+2026-11-12T01:01:49.6187378Z 
+2026-11-12T01:01:52.5099665Z clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+2026-11-12T01:01:52.5100170Z Target: aarch64-pc-windows-msvc
+2026-11-12T01:01:52.5100386Z Thread model: posix
+2026-11-12T01:01:52.5100587Z InstalledDir: C:\Program Files\LLVM\bin
+2026-11-12T01:01:52.8530387Z g++.exe (x86_64-posix-seh-rev2, Built by MinGW-Builds project) 14.2.0
+2026-11-12T01:01:52.8530982Z Copyright (C) 2024 Free Software Foundation, Inc.
+2026-11-12T01:01:52.8531365Z This is free software; see the source for copying conditions.  There is NO
+2026-11-12T01:01:52.8531818Z warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+2026-11-12T01:01:52.8532103Z 
+2026-11-12T01:01:54.9248674Z clang version 22.1.8 (https://github.com/llvm/llvm-project ca7933e47d3a3451d81e72ac174dcb5aa28b59d1)
+2026-11-12T01:01:54.9249179Z Target: aarch64-pc-windows-msvc
+2026-11-12T01:01:54.9249452Z Thread model: posix
+2026-11-12T01:01:54.9249649Z InstalledDir: C:\Program Files\LLVM\bin
+2026-11-12T01:01:55.1022113Z 
+2026-11-12T01:01:55.1026557Z --- Build Systems ---
+2026-11-12T01:01:55.8899571Z cmake version 4.4.5
+2026-11-12T01:01:55.8899757Z 
+2026-11-12T01:01:55.8900342Z CMake suite maintained and supported by Kitware (kitware.com/cmake).
+2026-11-12T01:01:55.9920986Z 1.13.2
+2026-11-12T01:01:59.9003110Z 2026/11/11 17:01:59 Downloading https://releases.bazel.build/9.3.2/release/bazel-9.3.2-windows-arm64.exe...
+2026-11-12T01:02:01.4318588Z bazel 9.3.2
+2026-11-12T01:02:01.5428123Z GNU Make 4.4.1
+2026-11-12T01:02:01.5459251Z Built for x86_64-w64-mingw32
+2026-11-12T01:02:01.5459560Z Copyright (C) 1988-2023 Free Software Foundation, Inc.
+2026-11-12T01:02:01.5460099Z License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
+2026-11-12T01:02:01.5460676Z This is free software: you are free to change and redistribute it.
+2026-11-12T01:02:01.5461662Z There is NO WARRANTY, to the extent permitted by law.
+2026-11-12T01:02:01.5473589Z 
+2026-11-12T01:02:01.5478228Z --- vcpkg Inventory ---
+2026-11-12T01:02:01.8056823Z vcpkg package management program version 2026-10-29-139f2e53438b1529e178f6295bc563f4e0de734f
+2026-11-12T01:02:01.8057257Z 
+2026-11-12T01:02:01.8057452Z See LICENSE.txt for license information.
+2026-11-12T01:02:02.2842375Z VCPKG_INSTALLATION_ROOT Environment Variable: C:\vcpkg
+2026-11-12T01:02:02.2852006Z Default vcpkg path (C:\vcpkg) exists.
+2026-11-12T01:02:02.2855672Z 
+2026-11-12T01:02:02.2860668Z --- Shared Libraries (OpenSSL) ---
+2026-11-12T01:02:02.8565162Z OpenSSL 3.6.5 29 Sep 2026 (Library: OpenSSL 3.6.5 29 Sep 2026)
+2026-11-12T01:02:02.9301852Z Post job cleanup.
+2026-11-12T01:02:03.2408072Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-12T01:02:03.2909437Z git version 2.56.0.windows.4
+2026-11-12T01:02:03.3008350Z Temporarily overriding HOME='C:\a\_temp\6ca256df-bf29-4859-9807-06a8b885fa90' before making global git config changes
+2026-11-12T01:02:03.3009092Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-12T01:02:03.3018616Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-12T01:02:03.3575763Z Removing SSH command configuration
+2026-11-12T01:02:03.3588052Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-12T01:02:03.4145984Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-12T01:02:04.7308171Z Removing HTTP extra header
+2026-11-12T01:02:04.7318105Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-12T01:02:04.7872871Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-12T01:02:06.1406126Z Removing includeIf entries pointing to credentials config files
+2026-11-12T01:02:06.1418811Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-12T01:02:06.1907133Z includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path
+2026-11-12T01:02:06.1907758Z includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path
+2026-11-12T01:02:06.1908549Z includeif.gitdir:/github/workspace/.git.path
+2026-11-12T01:02:06.1908910Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-12T01:02:06.1968072Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path
+2026-11-12T01:02:06.2465364Z C:\a\_temp\git-credentials-771fcc83-120a-48e5-b8a4-333ac576a71e.config
+2026-11-12T01:02:06.2528857Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path C\:\\a\\_temp\\git\-credentials\-771fcc83\-120a\-48e5\-b8a4\-333ac576a71e\.config
+2026-11-12T01:02:06.3110933Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path
+2026-11-12T01:02:06.3635770Z C:\a\_temp\git-credentials-771fcc83-120a-48e5-b8a4-333ac576a71e.config
+2026-11-12T01:02:06.3697756Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path C\:\\a\\_temp\\git\-credentials\-771fcc83\-120a\-48e5\-b8a4\-333ac576a71e\.config
+2026-11-12T01:02:06.4292159Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-12T01:02:06.4790497Z /github/runner_temp/git-credentials-771fcc83-120a-48e5-b8a4-333ac576a71e.config
+2026-11-12T01:02:06.4851966Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-771fcc83\-120a\-48e5\-b8a4\-333ac576a71e\.config
+2026-11-12T01:02:06.5412624Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-12T01:02:06.5917895Z /github/runner_temp/git-credentials-771fcc83-120a-48e5-b8a4-333ac576a71e.config
+2026-11-12T01:02:06.5980038Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-771fcc83\-120a\-48e5\-b8a4\-333ac576a71e\.config
+2026-11-12T01:02:06.6535456Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-12T01:02:07.9134110Z Removing credentials config 'C:\a\_temp\git-credentials-771fcc83-120a-48e5-b8a4-333ac576a71e.config'
+2026-11-12T01:02:07.9381358Z Cleaning up orphan processes
+

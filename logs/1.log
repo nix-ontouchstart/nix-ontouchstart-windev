@@ -1,0 +1,324 @@
+2026-11-11T15:03:40.6702316Z Current runner version: '2.338.2'
+2026-11-11T15:03:40.6731375Z ##[group]Runner Image Provisioner
+2026-11-11T15:03:40.6732215Z Hosted Compute Agent
+2026-11-11T15:03:40.6732688Z Version: 20261028.624
+2026-11-11T15:03:40.6733183Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-11T15:03:40.6733777Z Build Date: 2026-10-28T21:51:42Z
+2026-11-11T15:03:40.6734351Z Worker ID: {650ce5a7-82ae-47ce-a70d-bc3e659dcba0}
+2026-11-11T15:03:40.6734954Z Region: northcentralus
+2026-11-11T15:03:40.6735424Z Cloud: Azure
+2026-11-11T15:03:40.6735871Z ##[endgroup]
+2026-11-11T15:03:40.6737696Z ##[group]Operating System
+2026-11-11T15:03:40.6738238Z Microsoft Windows 11
+2026-11-11T15:03:40.6738682Z 10.0.26200
+2026-11-11T15:03:40.6739095Z Enterprise
+2026-11-11T15:03:40.6739502Z ##[endgroup]
+2026-11-11T15:03:40.6739964Z ##[group]Runner Image
+2026-11-11T15:03:40.6740435Z Image: windows-11-vs2026-arm64
+2026-11-11T15:03:40.6740947Z Version: 20261101.203.1
+2026-11-11T15:03:40.6742601Z Included Software: https://github.com/actions/runner-images/blob/win11-vs2026-arm64/20261101.203/images/windows/Windows11-VS2026-Arm64-Readme.md
+2026-11-11T15:03:40.6744102Z Image Release: https://github.com/actions/runner-images/releases/tag/win11-vs2026-arm64%2F20261101.203
+2026-11-11T15:03:40.6744941Z ##[endgroup]
+2026-11-11T15:03:40.6745975Z ##[group]GITHUB_TOKEN Permissions
+2026-11-11T15:03:40.6748128Z Contents: read
+2026-11-11T15:03:40.6748641Z Metadata: read
+2026-11-11T15:03:40.6749093Z Packages: read
+2026-11-11T15:03:40.6749519Z ##[endgroup]
+2026-11-11T15:03:40.6752935Z Secret source: Actions
+2026-11-11T15:03:40.6753801Z Cache mode: write
+2026-11-11T15:03:40.6754594Z Prepare workflow directory
+2026-11-11T15:03:40.7224467Z Prepare all required actions
+2026-11-11T15:03:40.7278883Z Getting action download info
+2026-11-11T15:03:40.9622411Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-11T15:03:41.3860500Z Uses: nix-ontouchstart/nix-ontouchstart-windev/.github/workflows/phase1.yml@refs/heads/main (1c622b24665651ff02fae5f35f58c9233e3e71c4)
+2026-11-11T15:03:41.3865783Z Complete job name: phase1 / discovery
+2026-11-11T15:03:41.5654943Z ##[group]Run actions/checkout@v7
+2026-11-11T15:03:41.5656451Z with:
+2026-11-11T15:03:41.5656984Z   repository: nix-ontouchstart/nix-ontouchstart-windev
+2026-11-11T15:03:41.5660849Z   token: ***
+2026-11-11T15:03:41.5661248Z   ssh-strict: true
+2026-11-11T15:03:41.5661650Z   ssh-user: git
+2026-11-11T15:03:41.5662079Z   persist-credentials: true
+2026-11-11T15:03:41.5662525Z   clean: true
+2026-11-11T15:03:41.5662937Z   sparse-checkout-cone-mode: true
+2026-11-11T15:03:41.5663420Z   fetch-depth: 1
+2026-11-11T15:03:41.5663825Z   fetch-tags: false
+2026-11-11T15:03:41.5664236Z   show-progress: true
+2026-11-11T15:03:41.5664650Z   lfs: false
+2026-11-11T15:03:41.5665035Z   submodules: false
+2026-11-11T15:03:41.5665452Z   set-safe-directory: true
+2026-11-11T15:03:41.5665929Z   allow-unsafe-pr-checkout: false
+2026-11-11T15:03:41.5666873Z ##[endgroup]
+2026-11-11T15:03:41.9559940Z Syncing repository: nix-ontouchstart/nix-ontouchstart-windev
+2026-11-11T15:03:41.9562142Z ##[group]Getting Git version info
+2026-11-11T15:03:41.9563120Z Working directory is 'C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev'
+2026-11-11T15:03:42.0600350Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-11T15:03:42.5620474Z git version 2.56.0.windows.4
+2026-11-11T15:03:42.5680352Z ##[endgroup]
+2026-11-11T15:03:42.5717172Z Temporarily overriding HOME='C:\a\_temp\9af646dc-6ea8-45f4-98c9-980917d58912' before making global git config changes
+2026-11-11T15:03:42.5718698Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-11T15:03:42.5728015Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-11T15:03:42.6497649Z Deleting the contents of 'C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev'
+2026-11-11T15:03:42.6504883Z ##[group]Determining repository object format
+2026-11-11T15:03:42.6508749Z ##[endgroup]
+2026-11-11T15:03:42.6509640Z ##[group]Initializing the repository
+2026-11-11T15:03:42.6518004Z [command]"C:\Program Files\Git\bin\git.exe" init C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-11T15:03:42.7918629Z Initialized empty Git repository in C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/
+2026-11-11T15:03:42.7982063Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/nix-ontouchstart/nix-ontouchstart-windev
+2026-11-11T15:03:42.8653038Z ##[endgroup]
+2026-11-11T15:03:42.8653903Z ##[group]Disabling automatic garbage collection
+2026-11-11T15:03:42.8661463Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-11T15:03:42.9186665Z ##[endgroup]
+2026-11-11T15:03:42.9187475Z ##[group]Setting up auth
+2026-11-11T15:03:42.9188064Z Removing SSH command configuration
+2026-11-11T15:03:42.9198542Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-11T15:03:42.9720539Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-11T15:03:45.1724083Z Removing HTTP extra header
+2026-11-11T15:03:45.1734965Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-11T15:03:45.2308398Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-11T15:03:46.4763926Z Removing includeIf entries pointing to credentials config files
+2026-11-11T15:03:46.4774879Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-11T15:03:46.5291730Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-11T15:03:47.7593588Z [command]"C:\Program Files\Git\bin\git.exe" config --file C:\a\_temp\git-credentials-aaba833e-0557-428a-8cd3-6a241e8a3a25.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-11T15:03:47.8131652Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path C:\a\_temp\git-credentials-aaba833e-0557-428a-8cd3-6a241e8a3a25.config
+2026-11-11T15:03:47.8661796Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path C:\a\_temp\git-credentials-aaba833e-0557-428a-8cd3-6a241e8a3a25.config
+2026-11-11T15:03:47.9220437Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-aaba833e-0557-428a-8cd3-6a241e8a3a25.config
+2026-11-11T15:03:47.9770582Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-aaba833e-0557-428a-8cd3-6a241e8a3a25.config
+2026-11-11T15:03:48.0303794Z ##[endgroup]
+2026-11-11T15:03:48.0304210Z ##[group]Fetching the repository
+2026-11-11T15:03:48.0316835Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +1c622b24665651ff02fae5f35f58c9233e3e71c4:refs/remotes/origin/main
+2026-11-11T15:03:49.1131196Z From https://github.com/nix-ontouchstart/nix-ontouchstart-windev
+2026-11-11T15:03:49.1132213Z  * [new ref]         1c622b24665651ff02fae5f35f58c9233e3e71c4 -> origin/main
+2026-11-11T15:03:49.1199302Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/main
+2026-11-11T15:03:49.1739627Z   origin/main
+2026-11-11T15:03:49.1799963Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/main
+2026-11-11T15:03:49.2326043Z 1c622b24665651ff02fae5f35f58c9233e3e71c4
+2026-11-11T15:03:49.2375417Z ##[endgroup]
+2026-11-11T15:03:49.2375754Z ##[group]Determining the checkout info
+2026-11-11T15:03:49.2376612Z ##[endgroup]
+2026-11-11T15:03:49.2385845Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-11T15:03:49.3102322Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-11T15:03:49.3630447Z ##[group]Checking out the ref
+2026-11-11T15:03:49.3639436Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-11-11T15:03:49.4760161Z Switched to a new branch 'main'
+2026-11-11T15:03:49.4900102Z branch 'main' set up to track 'origin/main'.
+2026-11-11T15:03:49.4961884Z ##[endgroup]
+2026-11-11T15:03:49.5582257Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-11T15:03:49.6080211Z 1c622b24665651ff02fae5f35f58c9233e3e71c4
+2026-11-11T15:03:49.6622454Z ##[group]Run Write-Host "--- Architecture ---"
+2026-11-11T15:03:49.6623022Z [36;1mWrite-Host "--- Architecture ---"[0m
+2026-11-11T15:03:49.6623396Z [36;1mWrite-Host ([System.Environment]::ProcessorArchitecture)[0m
+2026-11-11T15:03:49.6623736Z [36;1mWrite-Host "--- System Info ---"[0m
+2026-11-11T15:03:49.6624278Z [36;1mGet-CimInstance Win32_OperatingSystem | Select-Object Caption, Version, OSArchitecture | Format-List[0m
+2026-11-11T15:03:49.6686438Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-11T15:03:49.6686870Z ##[endgroup]
+2026-11-11T15:04:23.4828094Z --- Architecture ---
+2026-11-11T15:04:23.4928021Z 
+2026-11-11T15:04:23.4936657Z --- System Info ---
+2026-11-11T15:04:24.6789488Z 
+2026-11-11T15:04:24.6790076Z 
+2026-11-11T15:04:24.6795806Z Caption        : Microsoft Windows 11 Enterprise
+2026-11-11T15:04:24.6796593Z Version        : 10.0.26200
+2026-11-11T15:04:24.6797819Z OSArchitecture : ARM 64-bit Processor
+2026-11-11T15:04:24.6798212Z 
+2026-11-11T15:04:24.6801270Z 
+2026-11-11T15:04:24.6802144Z 
+2026-11-11T15:04:25.0141207Z ##[group]Run Write-Host "--- Bash ---"
+2026-11-11T15:04:25.0141764Z [36;1mWrite-Host "--- Bash ---"[0m
+2026-11-11T15:04:25.0142032Z [36;1mbash --version[0m
+2026-11-11T15:04:25.0142295Z [36;1mWrite-Host "--- PowerShell ---"[0m
+2026-11-11T15:04:25.0142598Z [36;1m$PSVersionTable.PSVersion[0m
+2026-11-11T15:04:25.0142896Z [36;1mWrite-Host "--- pwsh ---"[0m
+2026-11-11T15:04:25.0143161Z [36;1mpwsh --version[0m
+2026-11-11T15:04:25.0200975Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-11T15:04:25.0201372Z ##[endgroup]
+2026-11-11T15:04:47.5518274Z --- Bash ---
+2026-11-11T15:04:47.7437868Z GNU bash, version 5.3.15(2)-release (x86_64-pc-cygwin)
+2026-11-11T15:04:47.7438294Z Copyright (C) 2025 Free Software Foundation, Inc.
+2026-11-11T15:04:47.7438790Z License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+2026-11-11T15:04:47.7439130Z 
+2026-11-11T15:04:47.7439358Z This is free software; you are free to change and redistribute it.
+2026-11-11T15:04:47.7439714Z There is NO WARRANTY, to the extent permitted by law.
+2026-11-11T15:04:47.7505605Z --- PowerShell ---
+2026-11-11T15:04:47.7594019Z 
+2026-11-11T15:04:47.7607058Z Major  Minor  Build  Revision
+2026-11-11T15:04:47.7610332Z -----  -----  -----  --------
+2026-11-11T15:04:47.7612272Z 5      1      26100  9711    
+2026-11-11T15:04:47.7621797Z --- pwsh ---
+2026-11-11T15:04:47.9086126Z PowerShell 7.6.9
+2026-11-11T15:04:48.0269916Z 
+2026-11-11T15:04:48.0269973Z 
+2026-11-11T15:04:48.0816466Z ##[group]Run Write-Host "--- Environment Variables ---"
+2026-11-11T15:04:48.0816982Z [36;1mWrite-Host "--- Environment Variables ---"[0m
+2026-11-11T15:04:48.0817393Z [36;1mGet-ChildItem Env: | Sort-Object Name | Select-Object Name, Value | Out-String[0m
+2026-11-11T15:04:48.0865894Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-11T15:04:48.0866635Z ##[endgroup]
+2026-11-11T15:05:10.5260705Z --- Environment Variables ---
+2026-11-11T15:05:10.6886720Z 
+2026-11-11T15:05:10.6887629Z Name                                        Value                                                                      
+2026-11-11T15:05:10.6888256Z ----                                        -----                                                                      
+2026-11-11T15:05:10.6888825Z ACTIONS_ORCHESTRATION_ID                    78821df2-dd65-87f7-a005-11cf88f98fcf.phase1.discovery.__default            
+2026-11-11T15:05:10.6889603Z ACTIONS_RUNNER_ACTION_ARCHIVE_CACHE         C:\actionarchivecache\                                                     
+2026-11-11T15:05:10.6890215Z ACTIONS_RUNNER_RETURN_JOB_RESULT_FOR_HOSTED 1                                                                          
+2026-11-11T15:05:10.6890806Z AGENT_TOOLSDIRECTORY                        C:\hostedtoolcache\windows                                                 
+2026-11-11T15:05:10.6891408Z ALLUSERSPROFILE                             C:\ProgramData                                                             
+2026-11-11T15:05:10.6891967Z ANT_HOME                                    C:\ProgramData\chocolatey\lib\ant\tools\apache-ant-1.10.18                 
+2026-11-11T15:05:10.6892540Z APPDATA                                     C:\Users\runneradmin\AppData\Roaming                                       
+2026-11-11T15:05:10.6893116Z AZ_DEVOPS_GLOBAL_CONFIG_DIR                 C:\azureDevOpsCli                                                          
+2026-11-11T15:05:10.6893665Z AZURE_CONFIG_DIR                            C:\azureCli                                                                
+2026-11-11T15:05:10.6894211Z AZURE_DEVOPS_CACHE_DIR                      C:\azureDevOpsCli\cache                                                    
+2026-11-11T15:05:10.6894822Z AZURE_EXTENSION_DIR                         C:\Program Files\Common Files\AzureCliExtensionDirectory                   
+2026-11-11T15:05:10.6895444Z ChocolateyInstall                           C:\ProgramData\chocolatey                                                  
+2026-11-11T15:05:10.6896048Z ChromeWebDriver                             C:\SeleniumWebDrivers\ChromeDriver                                         
+2026-11-11T15:05:10.6896568Z CI                                          true                                                                       
+2026-11-11T15:05:10.6897050Z COBERTURA_HOME                              C:\cobertura-2.1.1                                                         
+2026-11-11T15:05:10.6897606Z CommonProgramFiles                          C:\Program Files\Common Files                                              
+2026-11-11T15:05:10.6898210Z CommonProgramFiles(Arm)                     C:\Program Files (Arm)\Common Files                                        
+2026-11-11T15:05:10.6898814Z CommonProgramFiles(x86)                     C:\Program Files (x86)\Common Files                                        
+2026-11-11T15:05:10.6899417Z CommonProgramW6432                          C:\Program Files\Common Files                                              
+2026-11-11T15:05:10.6899972Z COMPUTERNAME                                runnervmjknx9                                                              
+2026-11-11T15:05:10.6900504Z ComSpec                                     C:\Windows\system32\cmd.exe                                                
+2026-11-11T15:05:10.6903432Z DOTNET_MULTILEVEL_LOOKUP                    0                                                                          
+2026-11-11T15:05:10.6904254Z DOTNET_NOLOGO                               1                                                                          
+2026-11-11T15:05:10.6904759Z DOTNET_SKIP_FIRST_TIME_EXPERIENCE           1                                                                          
+2026-11-11T15:05:10.6905593Z DriverData                                  C:\Windows\System32\Drivers\DriverData                                     
+2026-11-11T15:05:10.6906177Z EdgeWebDriver                               C:\SeleniumWebDrivers\EdgeDriver                                           
+2026-11-11T15:05:10.6906733Z ENABLE_RUNNER_TRACING                       true                                                                       
+2026-11-11T15:05:10.6907230Z GCM_INTERACTIVE                             Never                                                                      
+2026-11-11T15:05:10.6907777Z GeckoWebDriver                              C:\SeleniumWebDrivers\GeckoDriver                                          
+2026-11-11T15:05:10.6908314Z GITHUB_ACTION                               __run_3                                                                    
+2026-11-11T15:05:10.6908807Z GITHUB_ACTION_REF                                                                                                      
+2026-11-11T15:05:10.6909388Z GITHUB_ACTION_REPOSITORY                                                                                               
+2026-11-11T15:05:10.6909890Z GITHUB_ACTIONS                              true                                                                       
+2026-11-11T15:05:10.6910442Z GITHUB_ACTOR                                ontouchstart                                                               
+2026-11-11T15:05:10.6910943Z GITHUB_ACTOR_ID                             41637129                                                                   
+2026-11-11T15:05:10.6911493Z GITHUB_API_URL                              https://api.github.com                                                     
+2026-11-11T15:05:10.6912079Z GITHUB_ARTIFACTS                            C:\a\_temp\_runner_file_commands\artifacts_9919047f-6645-4779-8bb2-58ae4...
+2026-11-11T15:05:10.6912682Z GITHUB_ARTIFACTS_LIST                       C:\a\_temp\_runner_file_commands\artifacts_list_9919047f-6645-4779-8bb2-...
+2026-11-11T15:05:10.6913221Z GITHUB_BASE_REF                                                                                                        
+2026-11-11T15:05:10.6913730Z GITHUB_ENV                                  C:\a\_temp\_runner_file_commands\set_env_9919047f-6645-4779-8bb2-58ae4ea...
+2026-11-11T15:05:10.6914256Z GITHUB_EVENT_NAME                           push                                                                       
+2026-11-11T15:05:10.6914794Z GITHUB_EVENT_PATH                           C:\a\_temp\_github_workflow\event.json                                     
+2026-11-11T15:05:10.6915398Z GITHUB_GRAPHQL_URL                          https://api.github.com/graphql                                             
+2026-11-11T15:05:10.6915928Z GITHUB_HEAD_REF                                                                                                        
+2026-11-11T15:05:10.6916397Z GITHUB_JOB                                  discovery                                                                  
+2026-11-11T15:05:10.6916954Z GITHUB_OUTPUT                               C:\a\_temp\_runner_file_commands\set_output_9919047f-6645-4779-8bb2-58ae...
+2026-11-11T15:05:10.6917525Z GITHUB_PATH                                 C:\a\_temp\_runner_file_commands\add_path_9919047f-6645-4779-8bb2-58ae4e...
+2026-11-11T15:05:10.6918066Z GITHUB_REF                                  refs/heads/main                                                            
+2026-11-11T15:05:10.6918563Z GITHUB_REF_NAME                             main                                                                       
+2026-11-11T15:05:10.6919802Z GITHUB_REF_PROTECTED                        false                                                                      
+2026-11-11T15:05:10.6920369Z GITHUB_REF_TYPE                             branch                                                                     
+2026-11-11T15:05:10.6920935Z GITHUB_REPOSITORY                           nix-ontouchstart/nix-ontouchstart-windev                                   
+2026-11-11T15:05:10.6929390Z GITHUB_REPOSITORY_ID                        1453994198                                                                 
+2026-11-11T15:05:10.6929957Z GITHUB_REPOSITORY_OWNER                     nix-ontouchstart                                                           
+2026-11-11T15:05:10.6930516Z GITHUB_REPOSITORY_OWNER_ID                  332057909                                                                  
+2026-11-11T15:05:10.6931053Z GITHUB_RETENTION_DAYS                       90                                                                         
+2026-11-11T15:05:10.6931537Z GITHUB_RUN_ATTEMPT                          1                                                                          
+2026-11-11T15:05:10.6932018Z GITHUB_RUN_ID                               43044519752                                                                
+2026-11-11T15:05:10.6932496Z GITHUB_RUN_NUMBER                           4                                                                          
+2026-11-11T15:05:10.6933020Z GITHUB_SERVER_URL                           https://github.com                                                         
+2026-11-11T15:05:10.6933585Z GITHUB_SHA                                  1c622b24665651ff02fae5f35f58c9233e3e71c4                                   
+2026-11-11T15:05:10.6934162Z GITHUB_STATE                                C:\a\_temp\_runner_file_commands\save_state_9919047f-6645-4779-8bb2-58ae...
+2026-11-11T15:05:10.6934755Z GITHUB_STEP_SUMMARY                         C:\a\_temp\_runner_file_commands\step_summary_9919047f-6645-4779-8bb2-58...
+2026-11-11T15:05:10.6935340Z GITHUB_TRIGGERING_ACTOR                     ontouchstart                                                               
+2026-11-11T15:05:10.6935903Z GITHUB_WORKFLOW                             .github/workflows/dev.yml                                                  
+2026-11-11T15:05:10.6936526Z GITHUB_WORKFLOW_REF                         nix-ontouchstart/nix-ontouchstart-windev/.github/workflows/dev.yml@refs/...
+2026-11-11T15:05:10.6937169Z GITHUB_WORKFLOW_SHA                         1c622b24665651ff02fae5f35f58c9233e3e71c4                                   
+2026-11-11T15:05:10.6937795Z GITHUB_WORKSPACE                            C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev                       
+2026-11-11T15:05:10.6938414Z GOROOT_1_24_AARCH64                         C:\hostedtoolcache\windows\go\1.24.13\arm64                                
+2026-11-11T15:05:10.6939015Z GOROOT_1_25_AARCH64                         C:\hostedtoolcache\windows\go\1.25.14\arm64                                
+2026-11-11T15:05:10.6939966Z GOROOT_1_26_AARCH64                         C:\hostedtoolcache\windows\go\1.26.10\arm64                                
+2026-11-11T15:05:10.6940734Z GRADLE_HOME                                 C:\ProgramData\chocolatey\lib\gradle\tools\gradle-9.8.2                    
+2026-11-11T15:05:10.6941284Z HOMEDRIVE                                   C:                                                                         
+2026-11-11T15:05:10.6941768Z HOMEPATH                                    \Users\runneradmin                                                         
+2026-11-11T15:05:10.6942324Z IEWebDriver                                 C:\SeleniumWebDrivers\IEDriver                                             
+2026-11-11T15:05:10.6942870Z ImageOS                                     win11-vs2026-arm64                                                         
+2026-11-11T15:05:10.6943709Z ImageVersion                                20261101.203.1                                                             
+2026-11-11T15:05:10.6944318Z JAVA_HOME                                   C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\21.0.12-101.0\aarch64  
+2026-11-11T15:05:10.6944926Z JAVA_HOME_21_AARCH64                        C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\21.0.12-101.0\aarch64  
+2026-11-11T15:05:10.6945895Z JAVA_HOME_23_AARCH64                        C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\23.0.2-7\aarch64       
+2026-11-11T15:05:10.6946502Z LOCALAPPDATA                                C:\Users\runneradmin\AppData\Local                                         
+2026-11-11T15:05:10.6947055Z LOGONSERVER                                 \\runnervmjknx9                                                            
+2026-11-11T15:05:10.6947592Z M2                                          C:\ProgramData\chocolatey\lib\maven\apache-maven-3.9.16\bin                
+2026-11-11T15:05:10.6948118Z M2_REPO                                     C:\ProgramData\m2                                                          
+2026-11-11T15:05:10.6948973Z MAVEN_OPTS                                  -Xms256m                                                                   
+2026-11-11T15:05:10.6949520Z npm_config_prefix                           C:\npm\prefix                                                              
+2026-11-11T15:05:10.6950044Z NUMBER_OF_PROCESSORS                        4                                                                          
+2026-11-11T15:05:10.6951058Z OS                                          Windows_NT                                                                 
+2026-11-11T15:05:10.6951609Z Path                                        C:\aliyun-cli;C:\vcpkg;C:\tools\zstd;C:\Program Files (x86)\NSIS\;C:\Pro...
+2026-11-11T15:05:10.6952207Z PATHEXT                                     .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL                 
+2026-11-11T15:05:10.6952717Z PHPROOT                                     c:\tools\php                                                               
+2026-11-11T15:05:10.6953228Z PIPX_BIN_DIR                                C:\Program Files (x86)\pipx_bin                                            
+2026-11-11T15:05:10.6953759Z PIPX_HOME                                   C:\Program Files (x86)\pipx                                                
+2026-11-11T15:05:10.6954382Z POWERSHELL_DISTRIBUTION_CHANNEL             GitHub-Actions-win11-vs2026-arm64                                          
+2026-11-11T15:05:10.6955013Z POWERSHELL_UPDATECHECK                      Off                                                                        
+2026-11-11T15:05:10.6955534Z PROCESSOR_ARCHITECTURE                      ARM64                                                                      
+2026-11-11T15:05:10.6956115Z PROCESSOR_IDENTIFIER                        ARMv8 (64-bit) Family 8 Model D49 Revision   0, MICROSOFT CORPORATION      
+2026-11-11T15:05:10.6956668Z PROCESSOR_LEVEL                             3401                                                                       
+2026-11-11T15:05:10.6957156Z PROCESSOR_REVISION                          0000                                                                       
+2026-11-11T15:05:10.6957657Z ProgramData                                 C:\ProgramData                                                             
+2026-11-11T15:05:10.6958177Z ProgramFiles                                C:\Program Files                                                           
+2026-11-11T15:05:10.6958713Z ProgramFiles(Arm)                           C:\Program Files (Arm)                                                     
+2026-11-11T15:05:10.6959252Z ProgramFiles(x86)                           C:\Program Files (x86)                                                     
+2026-11-11T15:05:10.6960100Z ProgramW6432                                C:\Program Files                                                           
+2026-11-11T15:05:10.6960762Z PSModuleAnalysisCachePath                   C:\PSModuleAnalysisCachePath\ModuleAnalysisCache                           
+2026-11-11T15:05:10.6961430Z PSModulePath                                C:\Users\runneradmin\Documents\WindowsPowerShell\Modules;C:\\Modules\az_...
+2026-11-11T15:05:10.6962152Z PUBLIC                                      C:\Users\Public                                                            
+2026-11-11T15:05:10.6962645Z RTOOLS45_HOME                               C:\rtools45                                                                
+2026-11-11T15:05:10.6963127Z RUNNER_ARCH                                 ARM64                                                                      
+2026-11-11T15:05:10.6963636Z RUNNER_ENVIRONMENT                          github-hosted                                                              
+2026-11-11T15:05:10.6964184Z RUNNER_NAME                                 GitHub Actions 1000000505                                                  
+2026-11-11T15:05:10.6964689Z RUNNER_OS                                   Windows                                                                    
+2026-11-11T15:05:10.6965154Z RUNNER_TEMP                                 C:\a\_temp                                                                 
+2026-11-11T15:05:10.6965683Z RUNNER_TOOL_CACHE                           C:\hostedtoolcache\windows                                                 
+2026-11-11T15:05:10.6966276Z RUNNER_TRACKING_ID                          github_6c697e4d-3a28-478b-b81b-27ae89d7145c                                
+2026-11-11T15:05:10.6966872Z RUNNER_WORKSPACE                            C:\a\nix-ontouchstart-windev                                               
+2026-11-11T15:05:10.6967646Z SBT_HOME                                    C:\Program Files (x86)\sbt\                                                
+2026-11-11T15:05:10.6968231Z SELENIUM_JAR_PATH                           C:\selenium\selenium-server.jar                                            
+2026-11-11T15:05:10.6968755Z SystemDrive                                 C:                                                                         
+2026-11-11T15:05:10.6969218Z SystemRoot                                  C:\Windows                                                                 
+2026-11-11T15:05:10.6969732Z TEMP                                        C:\Users\RUNNER~1\AppData\Local\Temp                                       
+2026-11-11T15:05:10.6970254Z TMP                                         C:\Users\RUNNER~1\AppData\Local\Temp                                       
+2026-11-11T15:05:10.6970770Z USERDOMAIN                                  runnervmjknx9                                                              
+2026-11-11T15:05:10.6971314Z USERDOMAIN_ROAMINGPROFILE                   runnervmjknx9                                                              
+2026-11-11T15:05:10.6971856Z USERNAME                                    runneradmin                                                                
+2026-11-11T15:05:10.6972365Z USERPROFILE                                 C:\Users\runneradmin                                                       
+2026-11-11T15:05:10.6972894Z VCPKG_INSTALLATION_ROOT                     C:\vcpkg                                                                   
+2026-11-11T15:05:10.6973389Z windir                                      C:\Windows                                                                 
+2026-11-11T15:05:10.6973671Z 
+2026-11-11T15:05:10.6973675Z 
+2026-11-11T15:05:10.6973678Z 
+2026-11-11T15:05:10.7666475Z Post job cleanup.
+2026-11-11T15:05:11.0575915Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-11T15:05:11.1054597Z git version 2.56.0.windows.4
+2026-11-11T15:05:11.1139915Z Temporarily overriding HOME='C:\a\_temp\2f8ee74d-ce77-44dc-b5a3-420f5efda6bc' before making global git config changes
+2026-11-11T15:05:11.1140865Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-11T15:05:11.1153492Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-11T15:05:11.1664395Z Removing SSH command configuration
+2026-11-11T15:05:11.1675171Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-11T15:05:11.2192524Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-11T15:05:12.4053796Z Removing HTTP extra header
+2026-11-11T15:05:12.4063015Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-11T15:05:12.4594018Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-11T15:05:13.6761936Z Removing includeIf entries pointing to credentials config files
+2026-11-11T15:05:13.6773572Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-11T15:05:13.7230797Z includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path
+2026-11-11T15:05:13.7231491Z includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path
+2026-11-11T15:05:13.7231979Z includeif.gitdir:/github/workspace/.git.path
+2026-11-11T15:05:13.7232300Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-11T15:05:13.7284974Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path
+2026-11-11T15:05:13.7751619Z C:\a\_temp\git-credentials-aaba833e-0557-428a-8cd3-6a241e8a3a25.config
+2026-11-11T15:05:13.7808266Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path C\:\\a\\_temp\\git\-credentials\-aaba833e\-0557\-428a\-8cd3\-6a241e8a3a25\.config
+2026-11-11T15:05:13.8348511Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path
+2026-11-11T15:05:13.8835623Z C:\a\_temp\git-credentials-aaba833e-0557-428a-8cd3-6a241e8a3a25.config
+2026-11-11T15:05:13.8892488Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path C\:\\a\\_temp\\git\-credentials\-aaba833e\-0557\-428a\-8cd3\-6a241e8a3a25\.config
+2026-11-11T15:05:13.9440814Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-11T15:05:13.9898639Z /github/runner_temp/git-credentials-aaba833e-0557-428a-8cd3-6a241e8a3a25.config
+2026-11-11T15:05:13.9954323Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-aaba833e\-0557\-428a\-8cd3\-6a241e8a3a25\.config
+2026-11-11T15:05:14.0479131Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-11T15:05:14.0933285Z /github/runner_temp/git-credentials-aaba833e-0557-428a-8cd3-6a241e8a3a25.config
+2026-11-11T15:05:14.0990804Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-aaba833e\-0557\-428a\-8cd3\-6a241e8a3a25\.config
+2026-11-11T15:05:14.1519290Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-11T15:05:15.4033044Z Removing credentials config 'C:\a\_temp\git-credentials-aaba833e-0557-428a-8cd3-6a241e8a3a25.config'
+2026-11-11T15:05:15.4277378Z Cleaning up orphan processes
+

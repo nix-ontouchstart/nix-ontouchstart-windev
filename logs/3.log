@@ -1,0 +1,435 @@
+2026-11-11T23:17:26.9884828Z Current runner version: '2.338.2'
+2026-11-11T23:17:26.9962388Z ##[group]Runner Image Provisioner
+2026-11-11T23:17:26.9963265Z Hosted Compute Agent
+2026-11-11T23:17:26.9963722Z Version: 20261028.624
+2026-11-11T23:17:26.9964217Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-11T23:17:26.9964822Z Build Date: 2026-10-28T21:51:42Z
+2026-11-11T23:17:26.9965356Z Worker ID: {d9f2b7f5-5338-41e0-9437-65f2f7b9bbe9}
+2026-11-11T23:17:26.9965939Z Region: northcentralus
+2026-11-11T23:17:26.9966380Z Cloud: Azure
+2026-11-11T23:17:26.9966800Z ##[endgroup]
+2026-11-11T23:17:26.9968509Z ##[group]Operating System
+2026-11-11T23:17:26.9969036Z Microsoft Windows 11
+2026-11-11T23:17:26.9969501Z 10.0.26200
+2026-11-11T23:17:26.9969903Z Enterprise
+2026-11-11T23:17:26.9970304Z ##[endgroup]
+2026-11-11T23:17:26.9970720Z ##[group]Runner Image
+2026-11-11T23:17:26.9971188Z Image: windows-11-vs2026-arm64
+2026-11-11T23:17:26.9971675Z Version: 20261101.203.1
+2026-11-11T23:17:26.9973332Z Included Software: https://github.com/actions/runner-images/blob/win11-vs2026-arm64/20261101.203/images/windows/Windows11-VS2026-Arm64-Readme.md
+2026-11-11T23:17:26.9974908Z Image Release: https://github.com/actions/runner-images/releases/tag/win11-vs2026-arm64%2F20261101.203
+2026-11-11T23:17:26.9975757Z ##[endgroup]
+2026-11-11T23:17:26.9976814Z ##[group]GITHUB_TOKEN Permissions
+2026-11-11T23:17:26.9979775Z Contents: read
+2026-11-11T23:17:26.9980280Z Metadata: read
+2026-11-11T23:17:26.9980700Z Packages: read
+2026-11-11T23:17:26.9981106Z ##[endgroup]
+2026-11-11T23:17:26.9983859Z Secret source: Actions
+2026-11-11T23:17:26.9984633Z Cache mode: write
+2026-11-11T23:17:26.9985430Z Prepare workflow directory
+2026-11-11T23:17:27.0396866Z Prepare all required actions
+2026-11-11T23:17:27.0447964Z Getting action download info
+2026-11-11T23:17:27.2200265Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-11T23:17:27.5972870Z Uses: nix-ontouchstart/nix-ontouchstart-windev/.github/workflows/phase2.yml@refs/heads/main (fa12bb6886e5214f74194b95ad774809d6624915)
+2026-11-11T23:17:27.5978898Z Complete job name: phase2 / discovery
+2026-11-11T23:17:27.7782897Z ##[group]Run actions/checkout@v7
+2026-11-11T23:17:27.7784301Z with:
+2026-11-11T23:17:27.7784850Z   repository: nix-ontouchstart/nix-ontouchstart-windev
+2026-11-11T23:17:27.7788343Z   token: ***
+2026-11-11T23:17:27.7788740Z   ssh-strict: true
+2026-11-11T23:17:27.7789144Z   ssh-user: git
+2026-11-11T23:17:27.7789557Z   persist-credentials: true
+2026-11-11T23:17:27.7790009Z   clean: true
+2026-11-11T23:17:27.7790422Z   sparse-checkout-cone-mode: true
+2026-11-11T23:17:27.7790903Z   fetch-depth: 1
+2026-11-11T23:17:27.7791305Z   fetch-tags: false
+2026-11-11T23:17:27.7791714Z   show-progress: true
+2026-11-11T23:17:27.7792130Z   lfs: false
+2026-11-11T23:17:27.7792513Z   submodules: false
+2026-11-11T23:17:27.7792933Z   set-safe-directory: true
+2026-11-11T23:17:27.7793403Z   allow-unsafe-pr-checkout: false
+2026-11-11T23:17:27.7794330Z ##[endgroup]
+2026-11-11T23:17:28.0333595Z Syncing repository: nix-ontouchstart/nix-ontouchstart-windev
+2026-11-11T23:17:28.0337216Z ##[group]Getting Git version info
+2026-11-11T23:17:28.0338209Z Working directory is 'C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev'
+2026-11-11T23:17:28.1390533Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-11T23:17:28.5915602Z git version 2.56.0.windows.4
+2026-11-11T23:17:28.5979496Z ##[endgroup]
+2026-11-11T23:17:28.6023587Z Temporarily overriding HOME='C:\a\_temp\997f097f-1d9f-4b70-9d94-5697a32eee36' before making global git config changes
+2026-11-11T23:17:28.6026071Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-11T23:17:28.6033557Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-11T23:17:28.6795138Z Deleting the contents of 'C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev'
+2026-11-11T23:17:28.6802912Z ##[group]Determining repository object format
+2026-11-11T23:17:28.6806873Z ##[endgroup]
+2026-11-11T23:17:28.6808262Z ##[group]Initializing the repository
+2026-11-11T23:17:28.6815208Z [command]"C:\Program Files\Git\bin\git.exe" init C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-11T23:17:28.8154693Z Initialized empty Git repository in C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/
+2026-11-11T23:17:28.8214593Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/nix-ontouchstart/nix-ontouchstart-windev
+2026-11-11T23:17:28.8898676Z ##[endgroup]
+2026-11-11T23:17:28.8900139Z ##[group]Disabling automatic garbage collection
+2026-11-11T23:17:28.8907782Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-11T23:17:28.9449925Z ##[endgroup]
+2026-11-11T23:17:28.9451372Z ##[group]Setting up auth
+2026-11-11T23:17:28.9452418Z Removing SSH command configuration
+2026-11-11T23:17:28.9461299Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-11T23:17:29.0003204Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-11T23:17:31.2211173Z Removing HTTP extra header
+2026-11-11T23:17:31.2212270Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-11T23:17:31.2747491Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-11T23:17:32.4732508Z Removing includeIf entries pointing to credentials config files
+2026-11-11T23:17:32.4743209Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-11T23:17:32.5266720Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-11T23:17:33.7282591Z [command]"C:\Program Files\Git\bin\git.exe" config --file C:\a\_temp\git-credentials-13d92beb-1bea-4a4c-95d0-f30021c37329.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-11T23:17:33.7821769Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path C:\a\_temp\git-credentials-13d92beb-1bea-4a4c-95d0-f30021c37329.config
+2026-11-11T23:17:33.8342242Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path C:\a\_temp\git-credentials-13d92beb-1bea-4a4c-95d0-f30021c37329.config
+2026-11-11T23:17:33.8900764Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-13d92beb-1bea-4a4c-95d0-f30021c37329.config
+2026-11-11T23:17:33.9431510Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-13d92beb-1bea-4a4c-95d0-f30021c37329.config
+2026-11-11T23:17:33.9942833Z ##[endgroup]
+2026-11-11T23:17:33.9943372Z ##[group]Fetching the repository
+2026-11-11T23:17:33.9956202Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +fa12bb6886e5214f74194b95ad774809d6624915:refs/remotes/origin/main
+2026-11-11T23:17:34.9614056Z From https://github.com/nix-ontouchstart/nix-ontouchstart-windev
+2026-11-11T23:17:34.9615084Z  * [new ref]         fa12bb6886e5214f74194b95ad774809d6624915 -> origin/main
+2026-11-11T23:17:34.9675570Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/main
+2026-11-11T23:17:35.0186521Z   origin/main
+2026-11-11T23:17:35.0246051Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/main
+2026-11-11T23:17:35.0759827Z fa12bb6886e5214f74194b95ad774809d6624915
+2026-11-11T23:17:35.0807671Z ##[endgroup]
+2026-11-11T23:17:35.0809929Z ##[group]Determining the checkout info
+2026-11-11T23:17:35.0810320Z ##[endgroup]
+2026-11-11T23:17:35.0818930Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-11T23:17:35.1495729Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-11T23:17:35.2018608Z ##[group]Checking out the ref
+2026-11-11T23:17:35.2028261Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-11-11T23:17:35.3032390Z Switched to a new branch 'main'
+2026-11-11T23:17:35.3144524Z branch 'main' set up to track 'origin/main'.
+2026-11-11T23:17:35.3200918Z ##[endgroup]
+2026-11-11T23:17:35.3800507Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-11T23:17:35.4283222Z fa12bb6886e5214f74194b95ad774809d6624915
+2026-11-11T23:17:35.4809779Z ##[group]Run Write-Host "--- PowerShell Modules ---"
+2026-11-11T23:17:35.4810340Z [36;1mWrite-Host "--- PowerShell Modules ---"[0m
+2026-11-11T23:17:35.4811083Z [36;1mGet-Module -ListAvailable | Select-Object Name, Version | Sort-Object Name | Format-Table -AutoSize[0m
+2026-11-11T23:17:35.4875758Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-11T23:17:35.4876170Z ##[endgroup]
+2026-11-11T23:17:35.8953840Z --- PowerShell Modules ---
+2026-11-11T23:17:45.4741067Z 
+2026-11-11T23:17:45.4806095Z [32;1mName                                           [0m[32;1m Version[0m
+2026-11-11T23:17:45.4806672Z [32;1m----                                           [0m [32;1m-------[0m
+2026-11-11T23:17:45.4807014Z AppBackgroundTask                               1.0.0.0
+2026-11-11T23:17:45.4807318Z Appx                                            2.0.1.0
+2026-11-11T23:17:45.4808185Z AssignedAccess                                  1.0.0.0
+2026-11-11T23:17:45.4808652Z AWSPowerShell                                   5.0.327
+2026-11-11T23:17:45.4809361Z Az                                              15.6.1
+2026-11-11T23:17:45.4809654Z Az.Accounts                                     5.5.3
+2026-11-11T23:17:45.4810119Z Az.Advisor                                      3.0.0
+2026-11-11T23:17:45.4810533Z Az.Aks                                          7.1.2
+2026-11-11T23:17:45.4811149Z Az.AnalysisServices                             1.2.0
+2026-11-11T23:17:45.4811497Z Az.ApiManagement                                4.1.0
+2026-11-11T23:17:45.4811793Z Az.App                                          2.0.1
+2026-11-11T23:17:45.4812280Z Az.AppConfiguration                             2.1.0
+2026-11-11T23:17:45.4812811Z Az.ApplicationInsights                          3.0.0
+2026-11-11T23:17:45.4813357Z Az.ArcResourceBridge                            2.0.0
+2026-11-11T23:17:45.4813775Z Az.ArizeAI                                      1.0.0
+2026-11-11T23:17:45.4814719Z Az.Attestation                                  3.0.0
+2026-11-11T23:17:45.4815055Z Az.Automanage                                   2.0.0
+2026-11-11T23:17:45.4815547Z Az.Automation                                   1.11.2
+2026-11-11T23:17:45.4815849Z Az.Batch                                        4.0.1
+2026-11-11T23:17:45.4816413Z Az.Billing                                      2.2.0
+2026-11-11T23:17:45.4816705Z Az.Cdn                                          6.0.2
+2026-11-11T23:17:45.4817397Z Az.CloudService                                 2.1.2
+2026-11-11T23:17:45.4818064Z Az.CognitiveServices                            1.16.0
+2026-11-11T23:17:45.4818381Z Az.Compute                                      11.5.0
+2026-11-11T23:17:45.4818704Z Az.ConfidentialLedger                           2.0.0
+2026-11-11T23:17:45.4819019Z Az.ConnectedMachine                             1.1.1
+2026-11-11T23:17:45.4819462Z Az.ContainerInstance                            4.1.3
+2026-11-11T23:17:45.4820393Z Az.ContainerRegistry                            5.0.1
+2026-11-11T23:17:45.4820688Z Az.CosmosDB                                     1.20.0
+2026-11-11T23:17:45.4820975Z Az.DataBoxEdge                                  1.2.1
+2026-11-11T23:17:45.4821265Z Az.Databricks                                   1.11.1
+2026-11-11T23:17:45.4821802Z Az.DataFactory                                  1.19.7
+2026-11-11T23:17:45.4822148Z Az.DataLakeAnalytics                            1.1.0
+2026-11-11T23:17:45.4822445Z Az.DataLakeStore                                1.5.2
+2026-11-11T23:17:45.4822915Z Az.DataMigration                                1.0.0
+2026-11-11T23:17:45.4823590Z Az.DataProtection                               2.10.1
+2026-11-11T23:17:45.4824022Z Az.DataShare                                    1.1.1
+2026-11-11T23:17:45.4824617Z Az.DataTransfer                                 1.0.0
+2026-11-11T23:17:45.4825039Z Az.DesktopVirtualization                        5.4.7
+2026-11-11T23:17:45.4828077Z Az.DevCenter                                    3.0.0
+2026-11-11T23:17:45.4828594Z Az.DeviceRegistry                               1.0.0
+2026-11-11T23:17:45.4828969Z Az.DevTestLabs                                  1.1.0
+2026-11-11T23:17:45.4829249Z Az.Dns                                          2.0.0
+2026-11-11T23:17:45.4829526Z Az.DnsResolver                                  1.2.4
+2026-11-11T23:17:45.4829811Z Az.ElasticSan                                   1.7.0
+2026-11-11T23:17:45.4830099Z Az.EventGrid                                    2.2.0
+2026-11-11T23:17:45.4830433Z Az.EventHub                                     5.4.0
+2026-11-11T23:17:45.4830707Z Az.Fabric                                       1.0.0
+2026-11-11T23:17:45.4830992Z Az.FirmwareAnalysis                             1.0.0
+2026-11-11T23:17:45.4831288Z Az.FrontDoor                                    2.1.0
+2026-11-11T23:17:45.4831568Z Az.Functions                                    4.3.2
+2026-11-11T23:17:45.4831871Z Az.HDInsight                                    6.4.0
+2026-11-11T23:17:45.4832163Z Az.HealthcareApis                               3.0.0
+2026-11-11T23:17:45.4832652Z Az.HealthDataAIServices                         1.0.0
+2026-11-11T23:17:45.4832943Z Az.IotHub                                       2.8.1
+2026-11-11T23:17:45.4833231Z Az.KeyVault                                     6.4.3
+2026-11-11T23:17:45.4833804Z Az.Kusto                                        2.4.1
+2026-11-11T23:17:45.4834220Z Az.LambdaTest                                   1.0.0
+2026-11-11T23:17:45.4834866Z Az.LoadTesting                                  1.1.1
+2026-11-11T23:17:45.4835279Z Az.LogicApp                                     1.6.0
+2026-11-11T23:17:45.4835681Z Az.MachineLearning                              1.2.0
+2026-11-11T23:17:45.4836001Z Az.MachineLearningServices                      1.3.0
+2026-11-11T23:17:45.4836316Z Az.Maintenance                                  1.5.1
+2026-11-11T23:17:45.4836620Z Az.ManagedServiceIdentity                       2.0.0
+2026-11-11T23:17:45.4837224Z Az.ManagedServices                              3.1.3
+2026-11-11T23:17:45.4837559Z Az.MarketplaceOrdering                          2.2.0
+2026-11-11T23:17:45.4845255Z Az.Migrate                                      2.12.1
+2026-11-11T23:17:45.4845644Z Az.Monitor                                      7.0.0
+2026-11-11T23:17:45.4845921Z Az.MySql                                        1.5.2
+2026-11-11T23:17:45.4846199Z Az.NetAppFiles                                  1.2.0
+2026-11-11T23:17:45.4846480Z Az.Network                                      7.27.0
+2026-11-11T23:17:45.4846765Z Az.NetworkCloud                                 2.0.0
+2026-11-11T23:17:45.4847052Z Az.Nginx                                        2.0.0
+2026-11-11T23:17:45.4847333Z Az.NotificationHubs                             1.2.0
+2026-11-11T23:17:45.4847628Z Az.OperationalInsights                          3.3.0
+2026-11-11T23:17:45.4847915Z Az.Oracle                                       2.0.0
+2026-11-11T23:17:45.4848625Z Az.PolicyInsights                               1.7.4
+2026-11-11T23:17:45.4849423Z Az.PostgreSql                                   1.4.1
+2026-11-11T23:17:45.4849955Z Az.PowerBIEmbedded                              2.1.0
+2026-11-11T23:17:45.4850437Z Az.PrivateDns                                   1.2.0
+2026-11-11T23:17:45.4850772Z Az.RecoveryServices                             7.11.2
+2026-11-11T23:17:45.4851127Z Az.RedisCache                                   1.11.0
+2026-11-11T23:17:45.4851619Z Az.RedisEnterpriseCache                         1.6.1
+2026-11-11T23:17:45.4851910Z Az.Relay                                        3.0.0
+2026-11-11T23:17:45.4852189Z Az.ResourceGraph                                1.2.1
+2026-11-11T23:17:45.4852477Z Az.ResourceMover                                1.3.2
+2026-11-11T23:17:45.4852761Z Az.Resources                                    9.1.0
+2026-11-11T23:17:45.4853057Z Az.Security                                     1.8.0
+2026-11-11T23:17:45.4854293Z Az.SecurityInsights                             3.2.2
+2026-11-11T23:17:45.4854628Z Az.ServiceBus                                   4.1.1
+2026-11-11T23:17:45.4854918Z Az.ServiceFabric                                5.1.0
+2026-11-11T23:17:45.4855200Z Az.SignalR                                      2.3.3
+2026-11-11T23:17:45.4855465Z Az.Sql                                          6.4.2
+2026-11-11T23:17:45.4855745Z Az.SqlVirtualMachine                            2.4.1
+2026-11-11T23:17:45.4856028Z Az.StackHCI                                     2.7.1
+2026-11-11T23:17:45.4856311Z Az.StackHCIVM                                   1.1.1
+2026-11-11T23:17:45.4856599Z Az.Storage                                      9.6.1
+2026-11-11T23:17:45.4856878Z Az.StorageAction                                1.0.1
+2026-11-11T23:17:45.4857171Z Az.StorageDiscovery                             1.0.0
+2026-11-11T23:17:45.4857459Z Az.StorageMover                                 2.0.0
+2026-11-11T23:17:45.4857757Z Az.StorageSync                                  2.5.2
+2026-11-11T23:17:45.4858050Z Az.StreamAnalytics                              3.0.0
+2026-11-11T23:17:45.4858334Z Az.Support                                      2.1.0
+2026-11-11T23:17:45.4858609Z Az.Synapse                                      3.2.4
+2026-11-11T23:17:45.4858897Z Az.TrafficManager                               1.3.0
+2026-11-11T23:17:45.4859177Z Az.Websites                                     3.4.3
+2026-11-11T23:17:45.4859454Z Az.Workloads                                    2.0.0
+2026-11-11T23:17:45.4859733Z BitLocker                                       1.0.0.0
+2026-11-11T23:17:45.4860023Z BitsTransfer                                    2.0.0.0
+2026-11-11T23:17:45.4860312Z BranchCache                                     1.0.0.0
+2026-11-11T23:17:45.4860600Z CimCmdlets                                      7.0.0.0
+2026-11-11T23:17:45.4860892Z ConfigDefenderPerformance                       1.0
+2026-11-11T23:17:45.4861197Z DefenderPerformance                             1.0
+2026-11-11T23:17:45.4861507Z DeliveryOptimization                            1.0.3.0
+2026-11-11T23:17:45.4861829Z DirectAccessClientComponents                    1.0.0.0
+2026-11-11T23:17:45.4862117Z Dism                                            3.0
+2026-11-11T23:17:45.4862383Z DnsClient                                       1.0.0.0
+2026-11-11T23:17:45.4862902Z DockerMsftProvider                              1.0.0.8
+2026-11-11T23:17:45.4863217Z EventTracingManagement                          1.0.0.0
+2026-11-11T23:17:45.4863529Z Get-NetView                                     2023.2.7.226
+2026-11-11T23:17:45.4863832Z HgsClient                                       1.0.0.0
+2026-11-11T23:17:45.4864124Z HgsDiagnostics                                  1.0.0.0
+2026-11-11T23:17:45.4864410Z Hyper-V                                         2.0.0.0
+2026-11-11T23:17:45.4864695Z ImageHelpers                                    0.0.1
+2026-11-11T23:17:45.4865905Z International                                   2.1.0.0
+2026-11-11T23:17:45.4866186Z Kds                                             1.0.0.0
+2026-11-11T23:17:45.4866461Z LanguagePackManagement                          1.0
+2026-11-11T23:17:45.4866742Z LAPS                                            1.0.0.0
+2026-11-11T23:17:45.4867013Z MarkdownPS                                      1.10
+2026-11-11T23:17:45.4867306Z Microsoft.Graph                                 2.41.2
+2026-11-11T23:17:45.4867617Z Microsoft.Graph.Applications                    2.41.2
+2026-11-11T23:17:45.4867956Z Microsoft.Graph.Authentication                  2.41.2
+2026-11-11T23:17:45.4868570Z Microsoft.Graph.BackupRestore                   2.41.2
+2026-11-11T23:17:45.4869278Z Microsoft.Graph.Bookings                        2.41.2
+2026-11-11T23:17:45.4869888Z Microsoft.Graph.Calendar                        2.41.2
+2026-11-11T23:17:45.4870308Z Microsoft.Graph.ChangeNotifications             2.41.2
+2026-11-11T23:17:45.4871190Z Microsoft.Graph.CloudCommunications             2.41.2
+2026-11-11T23:17:45.4871567Z Microsoft.Graph.Compliance                      2.41.2
+2026-11-11T23:17:45.4871903Z Microsoft.Graph.ConfigurationManagement         2.41.2
+2026-11-11T23:17:45.4872246Z Microsoft.Graph.CrossDeviceExperiences          2.41.2
+2026-11-11T23:17:45.4872984Z Microsoft.Graph.DeviceManagement                2.41.2
+2026-11-11T23:17:45.4873670Z Microsoft.Graph.DeviceManagement.Administration 2.41.2
+2026-11-11T23:17:45.4874043Z Microsoft.Graph.DeviceManagement.Enrollment     2.41.2
+2026-11-11T23:17:45.4879464Z Microsoft.Graph.DeviceManagement.Functions      2.41.2
+2026-11-11T23:17:45.4880133Z Microsoft.Graph.Devices.CloudPrint              2.41.2
+2026-11-11T23:17:45.4880497Z Microsoft.Graph.Devices.CorporateManagement     2.41.2
+2026-11-11T23:17:45.4880849Z Microsoft.Graph.Devices.ServiceAnnouncement     2.41.2
+2026-11-11T23:17:45.4881187Z Microsoft.Graph.DirectoryObjects                2.41.2
+2026-11-11T23:17:45.4881526Z Microsoft.Graph.Education                       2.41.2
+2026-11-11T23:17:45.4881839Z Microsoft.Graph.Files                           2.41.2
+2026-11-11T23:17:45.4882143Z Microsoft.Graph.Groups                          2.41.2
+2026-11-11T23:17:45.4882475Z Microsoft.Graph.Identity.DirectoryManagement    2.41.2
+2026-11-11T23:17:45.4882997Z Microsoft.Graph.Identity.Governance             2.41.2
+2026-11-11T23:17:45.4883328Z Microsoft.Graph.Identity.Partner                2.41.2
+2026-11-11T23:17:45.4883651Z Microsoft.Graph.Identity.SignIns                2.41.2
+2026-11-11T23:17:45.4883963Z Microsoft.Graph.Mail                            2.41.2
+2026-11-11T23:17:45.4884281Z Microsoft.Graph.Notes                           2.41.2
+2026-11-11T23:17:45.4884585Z Microsoft.Graph.People                          2.41.2
+2026-11-11T23:17:45.4884903Z Microsoft.Graph.PersonalContacts                2.41.2
+2026-11-11T23:17:45.4885217Z Microsoft.Graph.Planner                         2.41.2
+2026-11-11T23:17:45.4885535Z Microsoft.Graph.Reports                         2.41.2
+2026-11-11T23:17:45.4885849Z Microsoft.Graph.SchemaExtensions                2.41.2
+2026-11-11T23:17:45.4886162Z Microsoft.Graph.Search                          2.41.2
+2026-11-11T23:17:45.4886466Z Microsoft.Graph.Security                        2.41.2
+2026-11-11T23:17:45.4886773Z Microsoft.Graph.Sites                           2.41.2
+2026-11-11T23:17:45.4887073Z Microsoft.Graph.Teams                           2.41.2
+2026-11-11T23:17:45.4887381Z Microsoft.Graph.Users                           2.41.2
+2026-11-11T23:17:45.4887695Z Microsoft.Graph.Users.Actions                   2.41.2
+2026-11-11T23:17:45.4888015Z Microsoft.Graph.Users.Functions                 2.41.2
+2026-11-11T23:17:45.4888331Z Microsoft.PowerShell.Archive                    1.2.6
+2026-11-11T23:17:45.4888652Z Microsoft.PowerShell.Diagnostics                7.0.0.0
+2026-11-11T23:17:45.4888973Z Microsoft.PowerShell.Host                       7.0.0.0
+2026-11-11T23:17:45.4889688Z Microsoft.PowerShell.LocalAccounts              1.0.0.0
+2026-11-11T23:17:45.4890022Z Microsoft.PowerShell.Management                 7.0.0.0
+2026-11-11T23:17:45.4890363Z Microsoft.PowerShell.Operation.Validation       1.0.1
+2026-11-11T23:17:45.4890701Z Microsoft.PowerShell.PSResourceGet              1.2.0
+2026-11-11T23:17:45.4891024Z Microsoft.PowerShell.Security                   7.0.0.0
+2026-11-11T23:17:45.4891345Z Microsoft.PowerShell.ThreadJob                  2.2.0
+2026-11-11T23:17:45.4891660Z Microsoft.PowerShell.Utility                    7.0.0.0
+2026-11-11T23:17:45.4891974Z Microsoft.Windows.Bcd.Cmdlets                   1.0.0
+2026-11-11T23:17:45.4892289Z Microsoft.WSMan.Management                      7.0.0.0
+2026-11-11T23:17:45.4892580Z MMAgent                                         1.0
+2026-11-11T23:17:45.4892852Z NetAdapter                                      2.0.0.0
+2026-11-11T23:17:45.4893138Z NetConnection                                   2.0.0.0
+2026-11-11T23:17:45.4893607Z NetEventPacketCapture                           1.0.0.0
+2026-11-11T23:17:45.4893930Z NetLbfo                                         2.0.0.0
+2026-11-11T23:17:45.4894199Z NetNat                                          1.0.0.0
+2026-11-11T23:17:45.4894471Z NetQos                                          2.0.0.0
+2026-11-11T23:17:45.4894747Z NetSecurity                                     2.0.0.0
+2026-11-11T23:17:45.4895033Z NetSwitchTeam                                   1.0.0.0
+2026-11-11T23:17:45.4895316Z NetTCPIP                                        1.0.0.0
+2026-11-11T23:17:45.4895615Z NetworkConnectivityStatus                       1.0.0.0
+2026-11-11T23:17:45.4895924Z NetworkSwitchManager                            1.0.0.0
+2026-11-11T23:17:45.4896235Z NetworkTransition                               1.0.0.0
+2026-11-11T23:17:45.4896532Z OsConfiguration                                 1.2.0.0
+2026-11-11T23:17:45.4896833Z PackageManagement                               1.0.0.1
+2026-11-11T23:17:45.4897403Z PackageManagement                               1.4.8.1
+2026-11-11T23:17:45.4897928Z PackageManagement                               1.4.8.1
+2026-11-11T23:17:45.4898247Z PcsvDevice                                      1.0.0.0
+2026-11-11T23:17:45.4898527Z Pester                                          3.4.0
+2026-11-11T23:17:45.4898955Z Pester                                          5.9.0
+2026-11-11T23:17:45.4899527Z PKI                                             1.0.0.0
+2026-11-11T23:17:45.4899824Z PnpDevice                                       1.0.0.0
+2026-11-11T23:17:45.4900258Z PowerShellGet                                   1.0.0.1
+2026-11-11T23:17:45.4900566Z PowerShellGet                                   2.2.5
+2026-11-11T23:17:45.4901009Z PowerShellGet                                   2.2.5
+2026-11-11T23:17:45.4901582Z PrintManagement                                 1.1
+2026-11-11T23:17:45.4902060Z ProcessMitigations                              1.0.12
+2026-11-11T23:17:45.4903114Z Provisioning                                    3.0
+2026-11-11T23:17:45.4903462Z PSDiagnostics                                   7.0.0.0
+2026-11-11T23:17:45.4904025Z PSReadLine                                      2.4.5
+2026-11-11T23:17:45.4904331Z PSReadLine                                      2.0.0
+2026-11-11T23:17:45.4904690Z PSScriptAnalyzer                                1.25.0
+2026-11-11T23:17:45.4905229Z PSWindowsUpdate                                 2.2.1.5
+2026-11-11T23:17:45.4905680Z ScheduledTasks                                  1.0.0.0
+2026-11-11T23:17:45.4905982Z SecureBoot                                      2.0.0.0
+2026-11-11T23:17:45.4906533Z SmbShare                                        2.0.0.0
+2026-11-11T23:17:45.4906948Z SmbWitness                                      2.0.0.0
+2026-11-11T23:17:45.4907467Z SQLPS                                           1.0
+2026-11-11T23:17:45.4907887Z SqlServer                                       22.4.5.1
+2026-11-11T23:17:45.4908463Z StartLayout                                     1.0.0.1
+2026-11-11T23:17:45.4909080Z Storage                                         2.0.0.0
+2026-11-11T23:17:45.4909520Z TestsHelpers                                    0.0
+2026-11-11T23:17:45.4914501Z TLS                                             2.0.0.0
+2026-11-11T23:17:45.4914801Z TroubleshootingPack                             1.0.0.0
+2026-11-11T23:17:45.4915115Z TrustedPlatformModule                           2.0.0.0
+2026-11-11T23:17:45.4915412Z VpnClient                                       2.0.0.0
+2026-11-11T23:17:45.4915688Z VSSetup                                         2.2.16
+2026-11-11T23:17:45.4915953Z Wdac                                            1.0.0.0
+2026-11-11T23:17:45.4916213Z Whea                                            2.0.0.0
+2026-11-11T23:17:45.4916500Z WindowsDeveloperLicense                         1.0.0.0
+2026-11-11T23:17:45.4916804Z WindowsErrorReporting                           1.0
+2026-11-11T23:17:45.4918067Z WindowsSearch                                   1.0.0.0
+2026-11-11T23:17:45.4918436Z WindowsUpdate                                   1.0.0.0
+2026-11-11T23:17:45.4918635Z 
+2026-11-11T23:17:45.6010037Z ##[group]Run Write-Host "--- PowerShell Version ---"
+2026-11-11T23:17:45.6010589Z [36;1mWrite-Host "--- PowerShell Version ---"[0m
+2026-11-11T23:17:45.6010873Z [36;1m$PSVersionTable.PSVersion[0m
+2026-11-11T23:17:45.6011130Z [36;1mWrite-Host "--- Execution Policy ---"[0m
+2026-11-11T23:17:45.6011392Z [36;1mGet-ExecutionPolicy[0m
+2026-11-11T23:17:45.6011632Z [36;1mWrite-Host "--- Path Variable ---"[0m
+2026-11-11T23:17:45.6011873Z [36;1m$env:Path[0m
+2026-11-11T23:17:45.6072458Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-11T23:17:45.6079874Z ##[endgroup]
+2026-11-11T23:17:45.9314948Z --- PowerShell Version ---
+2026-11-11T23:17:45.9467649Z 
+2026-11-11T23:17:45.9472957Z [32;1mMajor [0m[32;1m Minor [0m[32;1m Patch [0m[32;1m PreReleaseLabel[0m[32;1m BuildLabel[0m
+2026-11-11T23:17:45.9473973Z [32;1m----- [0m [32;1m----- [0m [32;1m----- [0m [32;1m---------------[0m [32;1m----------[0m
+2026-11-11T23:17:45.9474416Z 7      6      9                      
+2026-11-11T23:17:45.9478519Z --- Execution Policy ---
+2026-11-11T23:17:46.0521580Z RemoteSigned
+2026-11-11T23:17:46.0525486Z --- Path Variable ---
+2026-11-11T23:17:46.0539228Z C:\Program Files\PowerShell\7;C:\aliyun-cli;C:\vcpkg;C:\tools\zstd;C:\Program Files (x86)\NSIS\;C:\Program Files\Mercurial\;C:\hostedtoolcache\windows\stack\3.11.1\x64;C:\mingw64\bin;C:\Program Files\dotnet;C:\Program Files\MySQL\MySQL Server 8.4\bin;C:\Program Files (x86)\R\R-4.6.2\bin\x64;C:\SeleniumWebDrivers\GeckoDriver;C:\SeleniumWebDrivers\EdgeDriver\;C:\SeleniumWebDrivers\ChromeDriver;C:\Program Files (x86)\sbt\bin;C:\Program Files (x86)\GitHub CLI;C:\Program Files\Git\bin;C:\Program Files (x86)\pipx_bin;C:\npm\prefix;C:\hostedtoolcache\windows\go\1.24.13\arm64\bin;C:\hostedtoolcache\windows\Python\3.13.17\arm64\Scripts;C:\hostedtoolcache\windows\Python\3.13.17\arm64;C:\hostedtoolcache\windows\Ruby\3.4.12\aarch64\bin;C:\Program Files\LLVM\bin;C:\Program Files\OpenSSL\bin;C:\tools\kotlinc\bin;C:\hostedtoolcache\windows\Java_Temurin-Hotspot_jdk\21.0.12-101.0\aarch64\bin;C:\Tools\Ninja;C:\Program Files (x86)\ImageMagick-7.1.2-Q16-HDRI;C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin;C:\ProgramData\kind;C:\ProgramData\Chocolatey\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\PowerShell\7\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\Microsoft SQL Server\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Microsoft SQL Server\170\DTS\Binn\;C:\Strawberry\c\bin;C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\ProgramData\chocolatey\lib\pulumi\tools\Pulumi\bin;C:\Program Files\CMake\bin;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.9.16\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Git\clangarm64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\GitHub CLI\;c:\tools\php;C:\Program Files (x86)\sbt\bin;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files\Amazon\SessionManagerPlugin\bin\;C:\Program Files\Amazon\AWSSAMCLI\bin\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Users\runneradmin\.dotnet\tools;C:\Users\runneradmin\.cargo\bin;C:\Users\runneradmin\AppData\Local\Microsoft\WindowsApps
+2026-11-11T23:17:46.0694927Z 
+2026-11-11T23:17:46.1365097Z ##[group]Run Write-Host "--- Rustc ---"
+2026-11-11T23:17:46.1365579Z [36;1mWrite-Host "--- Rustc ---"[0m
+2026-11-11T23:17:46.1365810Z [36;1mrustc --version[0m
+2026-11-11T23:17:46.1366071Z [36;1mWrite-Host "--- Cargo ---"[0m
+2026-11-11T23:17:46.1366296Z [36;1mcargo --version[0m
+2026-11-11T23:17:46.1366500Z [36;1mWrite-Host "--- Rustup ---"[0m
+2026-11-11T23:17:46.1366726Z [36;1mrustup --version[0m
+2026-11-11T23:17:46.1419502Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-11T23:17:46.1419835Z ##[endgroup]
+2026-11-11T23:17:46.4579749Z --- Rustc ---
+2026-11-11T23:17:49.6463073Z rustc 1.99.1 (58cf8f9c3 2026-10-13)
+2026-11-11T23:17:50.1430578Z --- Cargo ---
+2026-11-11T23:17:51.2992130Z cargo 1.99.1 (5f94df478 2026-08-27)
+2026-11-11T23:17:51.3180950Z --- Rustup ---
+2026-11-11T23:17:51.8005700Z rustup 1.29.2 (d8c92c676 2026-10-21)
+2026-11-11T23:17:51.8016426Z info: This is the version for the rustup toolchain manager, not the rustc compiler.
+2026-11-11T23:17:51.9805963Z info: the currently active `rustc` version is `rustc 1.99.1 (58cf8f9c3 2026-10-13)`
+2026-11-11T23:17:52.0801379Z ##[group]Run Write-Host "--- Cargo Installed Binaries ---"
+2026-11-11T23:17:52.0802068Z [36;1mWrite-Host "--- Cargo Installed Binaries ---"[0m
+2026-11-11T23:17:52.0802354Z [36;1mcargo install --list[0m
+2026-11-11T23:17:52.0856531Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-11T23:17:52.0856860Z ##[endgroup]
+2026-11-11T23:17:52.4058187Z --- Cargo Installed Binaries ---
+2026-11-11T23:17:52.8124336Z bindgen-cli v0.73.2:
+2026-11-11T23:17:52.8124611Z     bindgen.exe
+2026-11-11T23:17:52.8125364Z cargo-audit v0.22.2:
+2026-11-11T23:17:52.8125544Z     cargo-audit.exe
+2026-11-11T23:17:52.8125724Z cargo-outdated v0.19.0:
+2026-11-11T23:17:52.8125923Z     cargo-outdated.exe
+2026-11-11T23:17:52.8126102Z cbindgen v0.29.4:
+2026-11-11T23:17:52.8126272Z     cbindgen.exe
+2026-11-11T23:17:52.9287542Z Post job cleanup.
+2026-11-11T23:17:53.2192361Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-11T23:17:53.2663650Z git version 2.56.0.windows.4
+2026-11-11T23:17:53.2745846Z Temporarily overriding HOME='C:\a\_temp\d5ab42d3-c7c9-4482-b11e-933f929a00f1' before making global git config changes
+2026-11-11T23:17:53.2746555Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-11T23:17:53.2755358Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory C:\a\nix-ontouchstart-windev\nix-ontouchstart-windev
+2026-11-11T23:17:53.3275770Z Removing SSH command configuration
+2026-11-11T23:17:53.3287519Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-11T23:17:53.3828785Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-11T23:17:54.6053399Z Removing HTTP extra header
+2026-11-11T23:17:54.6063424Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-11T23:17:54.6592496Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-11T23:17:55.9136339Z Removing includeIf entries pointing to credentials config files
+2026-11-11T23:17:55.9147535Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-11T23:17:55.9610948Z includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path
+2026-11-11T23:17:55.9611607Z includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path
+2026-11-11T23:17:55.9612379Z includeif.gitdir:/github/workspace/.git.path
+2026-11-11T23:17:55.9613140Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-11T23:17:55.9669539Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path
+2026-11-11T23:17:56.0127805Z C:\a\_temp\git-credentials-13d92beb-1bea-4a4c-95d0-f30021c37329.config
+2026-11-11T23:17:56.0186647Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git.path C\:\\a\\_temp\\git\-credentials\-13d92beb\-1bea\-4a4c\-95d0\-f30021c37329\.config
+2026-11-11T23:17:56.0728322Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path
+2026-11-11T23:17:56.1237260Z C:\a\_temp\git-credentials-13d92beb-1bea-4a4c-95d0-f30021c37329.config
+2026-11-11T23:17:56.1290756Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:C:/a/nix-ontouchstart-windev/nix-ontouchstart-windev/.git/worktrees/*.path C\:\\a\\_temp\\git\-credentials\-13d92beb\-1bea\-4a4c\-95d0\-f30021c37329\.config
+2026-11-11T23:17:56.1840101Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-11T23:17:56.2299865Z /github/runner_temp/git-credentials-13d92beb-1bea-4a4c-95d0-f30021c37329.config
+2026-11-11T23:17:56.2356185Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-13d92beb\-1bea\-4a4c\-95d0\-f30021c37329\.config
+2026-11-11T23:17:56.2883937Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-11T23:17:56.3338616Z /github/runner_temp/git-credentials-13d92beb-1bea-4a4c-95d0-f30021c37329.config
+2026-11-11T23:17:56.3396438Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-13d92beb\-1bea\-4a4c\-95d0\-f30021c37329\.config
+2026-11-11T23:17:56.3927884Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-11T23:17:57.6116097Z Removing credentials config 'C:\a\_temp\git-credentials-13d92beb-1bea-4a4c-95d0-f30021c37329.config'
+2026-11-11T23:17:57.6344167Z Cleaning up orphan processes
+
